@@ -17,7 +17,7 @@
  */
 /*mongodb://appfog_aab02bb5ab3b:appfog_aab02bb5ab3b@ds033907.mongolab.com:33907/appfog_aab02bb5ab3b_dd5c64a01867
  mongodb://<user>:<password>@ds033907.mongolab.com:33907/appfog_aab02bb5ab3b_dd5c64a01867*/
-$config['default']['mongo_hostbase'] = 'localhost:27017';
+$config['default']['mongo_hostbase'] = 'ds033907.mongolab.com:33907';
 $config['default']['mongo_database'] = 'appfog_aab02bb5ab3b_dd5c64a01867';
 $config['default']['mongo_username'] = 'appfog_aab02bb5ab3b';
 $config['default']['mongo_password'] = 'appfog_aab02bb5ab3b';
