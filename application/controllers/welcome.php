@@ -26,6 +26,14 @@ class Welcome extends CI_Controller {
 		//echo $id;
 		//$this->load->view('welcome_message');
 	}
+
+	public function set()
+	{
+		$this->load->library('mongo_db');
+		$id = $this->mongo_db->insert('users', array('user1' => '123456'));
+		echo '<pre>';
+		var_dump($this->mongo_db->get('users'));
+	}
 }
 
 /* End of file welcome.php */
