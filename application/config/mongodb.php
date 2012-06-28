@@ -21,7 +21,7 @@
  * mongodb://<user>:<password>@ds033907.mongolab.com:33907/appfog_aab02bb5ab3b_dd5c64a01867
  */
 $config['default']['mongo_hostbase'] = 'ds033907.mongolab.com:33907/appfog_aab02bb5ab3b_dd5c64a01867';
-$config['default']['mongo_database'] = 'chat';
+$config['default']['mongo_database'] = 'appfog_aab02bb5ab3b_dd5c64a01867';
 $config['default']['mongo_username'] = 'mvelikov';
 $config['default']['mongo_password'] = 'Aby55sh';
 $config['default']['mongo_persist']  = TRUE;
