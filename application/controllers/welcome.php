@@ -25,7 +25,6 @@ class Welcome extends CI_Controller {
 	public function set()
 	{
 		$this->load->library('mongo_db');
-		$id = $this->mongo_db->insert('users', array('user1' => '123456'));
 		echo '<pre>';
 		var_dump($this->mongo_db->get('users'));
 	}
