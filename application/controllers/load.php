@@ -6,7 +6,6 @@ class Load extends CI_Controller {
     {
         $this->load->library('mongo_db');
         $id = $this->mongo_db->insert('users', array('user1' => '123456'));
-        echo '<pre>';
         var_dump($this->mongo_db->get('users'));
         //echo $id;
         //$this->load->view('welcome_message');
