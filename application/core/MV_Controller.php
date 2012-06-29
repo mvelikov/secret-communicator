@@ -36,8 +36,8 @@ class MV_Controller extends CI_Controller {
         
         if (!empty($error) && $error = 401)
         {
-            header('HTTP/1.1 401 Unauthorized');
-            $this->load->view('headers/h401');
+            HTTPStatus(401);
+            $this->load->view('headers/index', array('code' => 401));
             return;
         }
         
