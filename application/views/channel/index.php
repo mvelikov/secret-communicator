@@ -1,3 +1,3 @@
 <?php
 
-echo json_encode($channel);
+echo json_encode($channels);
