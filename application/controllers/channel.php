@@ -11,23 +11,57 @@ class Channel extends MV_Controller
                     ->get_where('channels', array(
                         'name' => $this->input->post('channel')
                     ));
-            if (is_array($channels_array) && count($channels_array) == 0 ) {
+            $channels_count = count($channels_array);
+            if (is_array($channels_array) && $channels_count == 0 ) {
                 $channel = $this->mongo_db
                         ->insert('channels', array(
                             'name' => $this->input->post('channel')
                         ));
-                $this->load->view('channel/index', array('channel' => $channel));
+
+            }
+            elseif ($channels_count == 1)
+            {
+                $channel = array_pop($channels_array);
+            }
+            else
+            {
+                HTTPStatus(500);
+                $this->load->view('headers/index', array('code' => 500, 'message' => 'more than one channel with this name'));
+                return;
+            }
+            $this->load->view('channel/index', array('channel' => $channel));
+        }
+        else
+        {
+            HTTPStatus(400);
+            $this->load->view('headers/index', array('code' => 400, 'message' => 'missing chanel name'));
+        }
+    }
+
+    public function index()
+    {
+        if ($this->input->post('channel'))
+        {
+            $this->load->library('mongo_db');
+            $channels_array = $this->mongo_db
+                    ->get_where('channels', array(
+                        'name' => $this->input->post('channel')
+                    ));
+            $channels_count = count($channels_array);
+            if (is_array($channels_array) && $channels_count == 1)
+            {
+                $this->load->view('channel/index', array('channel' => array_pop($channels_array)));
+            }
+            else
+            {
+                HTTPStatus(400);
+                $this->load->view('headers/index', array('code' => 400, 'message' => 'no such channel'));
             }
         }
         else
         {
             HTTPStatus(400);
-            $this->load->view('headers/index', array('code' => 400));
+            $this->load->view('headers/index', array('code' => 400, 'message' => 'missing chanel name'));
         }
-    }
-    
-    public function index()
-    {
-        
     }
 }

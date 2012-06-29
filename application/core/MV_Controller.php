@@ -8,6 +8,8 @@ class MV_Controller extends CI_Controller {
      public function __construct() {
         parent::__construct();
 
+        $this->load->helper('mv_helper');
+
         if ($this->input->post('user') && $this->input->post('pass') || 1) 
         {
             $this->load->library('mongo_db');
@@ -22,6 +24,8 @@ class MV_Controller extends CI_Controller {
                     ));*/
             if (!is_array($users) || count($users) == 0) 
             {
+                HTTPStatus(401);
+            $this->load->view('headers/index', array('code' => 401, 'message' => 'invalid user'));
                 $error = 401;
             }
             else
@@ -31,13 +35,13 @@ class MV_Controller extends CI_Controller {
         } 
         else
         {
+            HTTPStatus(401);
+            $this->load->view('headers/index', array('code' => 401, 'message' => 'missing user'));
             $error = 401;   
         }
         
         if (!empty($error) && $error = 401)
         {
-            HTTPStatus(401);
-            $this->load->view('headers/index', array('code' => 401));
             return;
         }
         
