@@ -6,27 +6,40 @@
         <meta name="keywords" content="HTML,CSS,JavaScript,PHP,Cloud,JSON,MongoDb" />
         <meta name="author" content="Mihail Velikov" />
         <meta charset="UTF-8" />
+        <link type="text/css" rel="stylesheet" href="css/style.css" />
         <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
         <script src="script.js"></script>
     </head>
     <body>
-        <div id="login" data-role="page">
-            <div class="wrapper">
-                <form name="login_form" id="login-form" method="post" action="#">
-                    <div class="row">
-                        <label for="user">User:</label>
-                        <input type="text" name="user" id="user" class="field" />
-                    </div>
-                    <div class="row">
-                        <label for="pass">Password:</label>
-                        <input type="password" name="pass" id="pass" class="field" />
-                    </div>
-                    <div class="row">
-                        <label for="login-submit">&nbsp;</label>
-                        <input name="login_submit" id="login-submit" type="button" value="Submit" />
-                    </div>
-                </form>
+        <div id="main-wrapper">
+            <header>
+                <div id="header">
+                    <h1>Mihail Velikov Chat Application</h1>
+                    <h2>Cloud Computing Developer</h2>
+                </div>
+            </header>
+            <div id="login" data-role="page">
+                <div class="wrapper">
+                    <form name="login_form" id="login-form" method="post" action="#">
+                        <div class="row">
+                            <label class="label" for="user">User:</label>
+                            <input type="text" name="user" id="user" class="field" />
+                        </div>
+                        <div class="row">
+                            <label class="label" for="pass">Password:</label>
+                            <input type="password" name="pass" id="pass" class="field" />
+                        </div>
+                        <div class="row">
+                            <label class="label" for="login-submit">&nbsp;</label>
+                            <input name="login_submit" class="field" id="login-submit" type="button" value="Submit" />
+                        </div>
+                    </form>
+                </div>
             </div>
+            <footer id="footer">
+                <h3>Developed by Mihail Velikov</h3>
+                <a href="http://mihailvelikov.eu" target="_blank" title="Mihail Velikov Cloud Developer">http://mihailvelikov.eu</a>
+            </footer>
         </div>
     </body>
 </html>

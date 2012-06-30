@@ -1,0 +1,42 @@
+/*
+    Document   : style.css
+    Created on : Jun 30, 2012, 11:32:45 AM
+    Author     : mihata
+    Description:
+        Purpose of the stylesheet follows.
+*/
+@import 'reset.css';
+
+/*basic*/
+
+.invisible {
+    display: none;
+}
+#main-wrapper,
+.wrapper {
+    width: 1024px;
+    margin: 0 auto;
+    clear: both;
+    height: 100%;
+    overflow: hidden;
+}
+#header {
+    height: 100px;
+    border-bottom: 1px dashed #e2e2e2;
+}
+#footer {border-top: 1px dashed #e2e2e2;}
+.row {
+    width: 1000px;
+    float: left;
+    clear: both;
+    margin: 5px;
+}
+.label {
+    width: 400px;
+    text-align: right;
+    float: left;
+}
+.field {
+    margin: 0 0 0 20px;
+    float: left;
+}
