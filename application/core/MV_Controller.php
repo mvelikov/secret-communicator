@@ -2,15 +2,24 @@
 
 class MV_Controller extends CI_Controller {
     
-     protected $_user;
+    protected $_user;
 
 
-     public function __construct() {
+    public function __construct() {
         parent::__construct();
 
         $this->load->helper('mv_helper');
 
-        if ($this->input->post('user') && $this->input->post('pass') || 1) 
+        if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on')
+        {
+            HTTPStatus(501);
+            $this->load->view('headers/index', array(
+                'code' => 501,
+                'message' => 'Use HTTPS connection!',
+            ));
+            return;
+        }
+        elseif ($this->input->post('user') && $this->input->post('pass') || 1) 
         {
             $this->load->library('mongo_db');
             $users = $this->mongo_db
@@ -20,12 +29,12 @@ class MV_Controller extends CI_Controller {
                     ));
                     /*->get_where('user', array(
                         'user' => $this->input->post('user'),
-                        'pass' => $this->input->post('pass')
+                        'pass' => sha1($this->input->post('pass')),
                     ));*/
             if (!is_array($users) || count($users) == 0) 
             {
                 HTTPStatus(401);
-            $this->load->view('headers/index', array('code' => 401, 'message' => 'invalid user'));
+            $this->load->view('headers/index', array('code' => 401, 'message' => 'Invalid user'));
                 $error = 401;
             }
             else
@@ -36,7 +45,7 @@ class MV_Controller extends CI_Controller {
         else
         {
             HTTPStatus(401);
-            $this->load->view('headers/index', array('code' => 401, 'message' => 'missing user'));
+            $this->load->view('headers/index', array('code' => 401, 'message' => 'Missing user'));
             $error = 401;   
         }
         
