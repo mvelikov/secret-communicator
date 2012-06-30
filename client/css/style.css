@@ -20,11 +20,18 @@
     height: 100%;
     overflow: hidden;
 }
+.wrapper {padding: 10px 0;}
 #header {
     height: 100px;
     border-bottom: 1px dashed #e2e2e2;
 }
 #footer {border-top: 1px dashed #e2e2e2;}
+
+.form-wrapper {
+    float: left;
+    overflow: hidden;
+    width: 100%;
+}
 .row {
     width: 1000px;
     float: left;
@@ -39,4 +46,26 @@
 .field {
     margin: 0 0 0 20px;
     float: left;
+}
+
+#message-box {
+    border: 1px dotted #E2E2E2;
+    box-shadow: 5px 5px 10px #888;
+    width: 640px;
+    height: 480px;
+    margin: 20px auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+}
+.message {
+    width: 600px;
+    margin: 5px 20px;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    word-wrap: breal-word;
+}
+.author {
+    font-weight: bolder;
+    font-size: 115%;
 }
