@@ -4,7 +4,7 @@
  * HTTP Protocol defined status codes
  * @param int $num
  */
-if (!function_exists(HTTPStatus))
+if (!function_exists('HTTPStatus'))
 {
     function HTTPStatus($num)
     {
