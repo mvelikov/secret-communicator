@@ -9,7 +9,10 @@ class MV_Controller extends CI_Controller {
         parent::__construct();
 
         $this->load->helper(array('mv_helper', 'url'));
-
+echo '<pre>', var_dump(array(
+                        'user' => $this->encrypt->encode('mvelikov'),
+                        'pass' => $this->encrypt->encode($this->encrypt->sha1('123456')),
+                    )), '</pre>';exit();
         /*if (empty($_SERVER['HTTP_X_FORWARDED_PROTO']) || $_SERVER['HTTP_X_FORWARDED_PROTO'] != 'https')
         {
             redirect($this->router->class . '/error_https');
@@ -19,12 +22,12 @@ class MV_Controller extends CI_Controller {
             $this->load->library('mongo_db');
             $users = $this->mongo_db
                     ->get_where('users', array(
-                        'user' => 'mvelikov',
-                        'pass' => '7c4a8d09ca3762af61e59520943dc26494f8941b'
+                        'user' => $this->encrypt->encode('mvelikov'),
+                        'pass' => $this->encrypt->encode($this->encrypt->sha1('123456')),
                     ));
                     /*->get_where('user', array(
-                        'user' => $this->input->post('user'),
-                        'pass' => sha1($this->input->post('pass')),
+                        'user' => $this->encrypt->encode($this->input->post('user')),
+                        'pass' => $this->encrypt->encode($this->encrypt->sha1($this->input->post('pass')))),
                     ));*/
             if (!is_array($users) || count($users) == 0)
             {
