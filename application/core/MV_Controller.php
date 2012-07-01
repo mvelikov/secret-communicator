@@ -9,9 +9,8 @@ class MV_Controller extends CI_Controller {
         parent::__construct();
 
         $this->load->helper(array('mv_helper', 'url'));
-        echo '<pre>';
-var_dump($_SERVER);exit();
-        if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on')
+
+        if (empty($_SERVER['HTTP_X_FORWARDED_PROTO']) || $_SERVER['HTTP_X_FORWARDED_PROTO'] != 'https')
         {
             redirect($this->router->class . '/error_https');
         }
@@ -29,9 +28,7 @@ var_dump($_SERVER);exit();
                     ));*/
             if (!is_array($users) || count($users) == 0)
             {
-                HTTPStatus(401);
-            $this->load->view('headers/index', array('code' => 401, 'message' => 'Invalid user'));
-                $error = 401;
+                redirect($this->router->class . '/error_auth');
             }
             else
             {
@@ -40,16 +37,8 @@ var_dump($_SERVER);exit();
         }
         else
         {
-            HTTPStatus(401);
-            $this->load->view('headers/index', array('code' => 401, 'message' => 'Missing user'));
-            $error = 401;
+            redirect($this->router->class . '/error_auth');
         }
-
-        if (!empty($error) && $error = 401)
-        {
-            return;
-        }
-
     }
 
     public function error_https()
@@ -59,5 +48,11 @@ var_dump($_SERVER);exit();
             'code' => 501,
             'message' => 'Use HTTPS connection!',
         ));
+    }
+
+    public function error_auth()
+    {
+        HTTPStatus(401);
+        $this->load->view('headers/index', array('code' => 401, 'message' => 'Invalid user'));
     }
 }
