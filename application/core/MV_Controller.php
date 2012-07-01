@@ -10,11 +10,11 @@ class MV_Controller extends CI_Controller {
 
         $this->load->helper(array('mv_helper', 'url'));
 
-        if (empty($_SERVER['HTTP_X_FORWARDED_PROTO']) || $_SERVER['HTTP_X_FORWARDED_PROTO'] != 'https')
+        /*if (empty($_SERVER['HTTP_X_FORWARDED_PROTO']) || $_SERVER['HTTP_X_FORWARDED_PROTO'] != 'https')
         {
             redirect($this->router->class . '/error_https');
         }
-        elseif ($this->input->post('user') && $this->input->post('pass') || 1)
+        else*/if ($this->input->post('user') && $this->input->post('pass') || 1)
         {
             $this->load->library('mongo_db');
             $users = $this->mongo_db

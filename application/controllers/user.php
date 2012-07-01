@@ -7,11 +7,11 @@ class User extends MV_Controller {
         $this->load->library('mongo_db');
         $user = $this->mongo_db
             ->get_where('users', array(
-                'user' => 'mvelikov',
-                'pass' => '7c4a8d09ca3762af61e59520943dc26494f8941b'
+                'user' => $this->encrypt->encode('mvelikov'),
+                'pass' => $this->encrypt->encode($this->encrypt->sha1('123456')),
             ));
         echo '<pre>';
-        var_dump($user );
+        var_dump($this->encrypt->encode('mvelikov'),  $this->encrypt->encode($this->encrypt->sha1('123456')));
     }
 
     public function insert()
@@ -19,8 +19,8 @@ class User extends MV_Controller {
         $this->load->library('mongo_db');
         $id = $this->mongo_db
                 ->insert('users', array(
-                    'user' => 'mvelikov',
-                    'pass' => '7c4a8d09ca3762af61e59520943dc26494f8941b'
+                    'user' => $this->encrypt->encode('mvelikov'),
+                    'pass' => $this->encrypt->encode($this->encrypt->sha1('123456')),
                 ));
         echo $id;
     }

@@ -5,7 +5,13 @@ class Load extends CI_Controller {
     public function index()
     {
         $this->load->library('mongo_db');
-        var_dump($this->mongo_db->get('users'));
+        $users = $this->mongo_db->get('users');
+        foreach ($users as $user)
+        {
+        	echo '<pre>', var_dump($this->encrypt->decode($user['user'])), '</pre>';
+        	echo '<pre>', var_dump($this->encrypt->decode($user['pass'])), '</pre>';
+        }
+
         //echo $id;
         //$this->load->view('welcome_message');
     }
