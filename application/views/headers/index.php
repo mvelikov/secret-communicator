@@ -1,3 +1,3 @@
 <?php
 
-echo json_decode(array('code' => $code, 'message' => $message));
+echo json_encode(array('code' => $code, 'message' => $message));

@@ -2,7 +2,7 @@
 
 class User extends MV_Controller {
 
-    public function index() 
+    public function index()
     {
         $this->load->library('mongo_db');
         $user = $this->mongo_db
@@ -13,8 +13,8 @@ class User extends MV_Controller {
         echo '<pre>';
         var_dump($user );
     }
-    
-    public function insert() 
+
+    public function insert()
     {
         $this->load->library('mongo_db');
         $id = $this->mongo_db
