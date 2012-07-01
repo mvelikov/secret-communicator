@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://velikov-chat.phpfog.com/';
+$config['base_url']	= 'http://velikov-chat.phpfogapp.com/';
 
 /*
 |--------------------------------------------------------------------------
