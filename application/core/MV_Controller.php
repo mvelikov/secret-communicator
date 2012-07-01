@@ -9,7 +9,7 @@ class MV_Controller extends CI_Controller {
         parent::__construct();
 
         $this->load->helper(array('mv_helper', 'url'));
-
+var_dump($_SERVER);exit();
         if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on')
         {
             redirect($this->router->class . '/error_https');
