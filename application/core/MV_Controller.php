@@ -22,8 +22,8 @@ class MV_Controller extends CI_Controller {
             $this->load->library('mongo_db');
             $users = $this->mongo_db
                     ->get_where('users', array(
-                        'user' => $this->encrypt->encode('mvelikov'),
-                        'pass' => $this->encrypt->encode($this->encrypt->sha1('123456')),
+                        'userHash' => $this->encrypt->sha1('mvelikov'),
+                        'pass' => $this->encrypt->sha1('123456mvelikov'),
                     ));
                     /*->get_where('user', array(
                         'user' => $this->encrypt->encode($this->input->post('user')),

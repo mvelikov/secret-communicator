@@ -7,11 +7,11 @@ class User extends MV_Controller {
         $this->load->library('mongo_db');
         $user = $this->mongo_db
             ->get_where('users', array(
-                'user' => $this->encrypt->encode('mvelikov'),
-                'pass' => $this->encrypt->encode($this->encrypt->sha1('123456')),
+                'userHash' => $this->encrypt->sha1('mvelikov'),
+                'pass' => $this->encrypt->sha1('123456mvelikov'),
             ));
         echo '<pre>';
-        var_dump($this->encrypt->encode('mvelikov'),  $this->encrypt->encode($this->encrypt->sha1('123456')));
+        var_dump($user);
     }
 
     public function insert()

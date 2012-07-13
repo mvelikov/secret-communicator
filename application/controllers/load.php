@@ -8,8 +8,9 @@ class Load extends CI_Controller {
         $users = $this->mongo_db->get('users');
         foreach ($users as $user)
         {
-        	echo '<pre>', var_dump($this->encrypt->decode($user['user'])), '</pre>';
-        	echo '<pre>', var_dump($this->encrypt->decode($user['pass'])), '</pre>';
+            echo '<pre>id ', var_dump($user['_id']), '</pre>';
+        	echo '<pre>user ', var_dump($this->encrypt->decode($user['user'])), '</pre>';
+        	echo '<pre>pass ', var_dump($user['pass'], $user['userHash']), '</pre>';
         }
 
         //echo $id;
