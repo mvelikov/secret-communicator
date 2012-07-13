@@ -1,5 +1,12 @@
 $(document).ready(function() {
+    var channel = 'velikov-chat';
+    var userObj = {
+        'user' : 'mvelikov',
+        'pass' : '123456',
+        'channel' : channel
+    };
     var base_href = 'http://localhost/velikov-chat.phpfogapp.com/';
+    
     $("#login-submit").click(function (e) {
         e.preventDefault();
         var user = $("#user").val(),
@@ -15,9 +22,14 @@ $(document).ready(function() {
                 },
                 success : function (data) {
                     console.log(data);
+                    userObj = {
+                        'user' : user,
+                        'pass' : pass
+                    };
                 },
                 error : function (error, type) {
                     console.log(error, type);
+                    userObj = {};
                 }
             });
         }
@@ -28,28 +40,42 @@ $(document).ready(function() {
         var text = $("#message").val();
         $("#message").val('');
         if (text != '') {
-            PUBNUB.publish({
-                channel : 'hello_homework',
-                message : text
-            });
+            $.ajax({
+                url : base_href + 'message/insert',
+                type: 'post',
+                data : {
+                    'message' : text,
+                    'channel' : userObj.channel
+                },
+                success : function (data) {
+                    PUBNUB.publish({
+                        channel : channel,
+                        message : text
+                    });
+                },
+                error : function () {
+                    alert('error sending single message');
+                }
+            })
+            
         }
 
     });
-    setTimeout(subscribe, 1000);
+    setTimeout(subscribe, 2000);
 
     function subscribe (){
 
         // LISTEN FOR MESSAGES
         PUBNUB.subscribe({
-            channel    : "hello_homework",      // CONNECT TO THIS CHANNEL.
+            channel    : channel,      // CONNECT TO THIS CHANNEL.
 
             restore    : false,              // STAY CONNECTED, EVEN WHEN BROWSER IS CLOSED
             // OR WHEN PAGE CHANGES.
 
             callback   : function(message) { // RECEIVED A MESSAGE.
-                var msg = 'Message recieved: <br />';
+                var msg = '<div class="message"><span class="author">' + userObj.user + '</span> said: <br />';
                 msg += message;
-                msg += '<br />' + (new Date).toUTCString() + '<br />';
+                msg += '<br />' + (new Date).toUTCString() + '<br /></div>';
                 $('#message-box').prepend(msg);
             },
 
