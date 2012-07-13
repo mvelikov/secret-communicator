@@ -22,12 +22,11 @@ class MV_Controller extends CI_Controller {
             $this->load->library('mongo_db');
             $users = $this->mongo_db
                     ->get_where('users', array(
-                        'userHash' => $this->encrypt->sha1('mvelikov'),
-                        'pass' => $this->encrypt->sha1('123456mvelikov'),
+                        'pass' => $this->encrypt->sha1('123456') . $this->encrypt->sha1('mvelikov'),
                     ));
-                    /*->get_where('user', array(
+                    /*->get_where('users', array(
                         'user' => $this->encrypt->encode($this->input->post('user')),
-                        'pass' => $this->encrypt->encode($this->encrypt->sha1($this->input->post('pass')))),
+                        'pass' => $this->encrypt->sha1($this->input->post('pass')) . $this->encrypt->sha1($this->input->post('user')),
                     ));*/
             if (!is_array($users) || count($users) == 0)
             {
