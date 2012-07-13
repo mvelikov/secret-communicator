@@ -20,7 +20,8 @@ class User extends MV_Controller {
         $id = $this->mongo_db
                 ->insert('users', array(
                     'user' => $this->encrypt->encode('mvelikov'),
-                    'pass' => $this->encrypt->encode($this->encrypt->sha1('123456')),
+                    'userHash' => $this->encrypt->sha1('mvelikov'),
+                    'pass' => $this->encrypt->sha1('123456' . 'mvelikov'),
                 ));
         echo $id;
     }
