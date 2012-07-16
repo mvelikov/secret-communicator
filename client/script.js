@@ -6,7 +6,7 @@ $(document).ready(function() {
         'channel' : channel
     };
     var base_href = 'http://velikov-chat.phpfogapp.com/';
-    
+
     $("#login-submit").click(function (e) {
         e.preventDefault();
         var user = $("#user").val(),
@@ -48,16 +48,22 @@ $(document).ready(function() {
                     'channel' : userObj.channel
                 },
                 success : function (data) {
-                    PUBNUB.publish({
-                        channel : channel,
-                        message : text
-                    });
+                    if (typeof data !== 'undefined'
+                        && data.success === true) {
+                            PUBNUB.publish({
+                            channel : channel,
+                            message : text
+                        });
+                    } else {
+                        console.log(data);
+                    }
+
                 },
                 error : function () {
                     alert('error sending single message');
                 }
             })
-            
+
         }
 
     });

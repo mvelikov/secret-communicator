@@ -14,12 +14,12 @@ class Message extends MV_Controller
             $message = $this->mongo_db
                     ->insert('messages', array(
                         'user' => $this->_user['user'],
-                        'message' => $message,
-                        'channel' => $channel,
+                        'message' => $this->enctypt->encode($message),
+                        'channel' => $this->enctypt->encode($channel),
                         'time' => time(),
                     ));
             echo '<pre>', var_dump($message->{'$id'}), '</pre>';
-            if (is_array($message) && count($message) == 1)
+            if ( ! empty($message->{'$id'}))
             {
                 HTTPStatus(200);
                 $this->load->view('message/index', array(
