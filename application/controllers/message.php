@@ -61,10 +61,10 @@ class Message extends MV_Controller
             $this->load->library('mongo_db');
             $messages = $this->mongo_db
                     ->order_by(array('time' => 'DESC'))
+                    ->limit($number)
                     ->get_where('messages', array(
                         'channel' => $channel,
-                    ))
-                    ->limit($number);
+                    ));
             echo '<pre>', var_dump($messages), '</pre>';
             if (is_array($messages))
             {
