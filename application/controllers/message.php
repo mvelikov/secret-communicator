@@ -18,7 +18,7 @@ class Message extends MV_Controller
                         'channel' => $channel,
                         'time' => time(),
                     ));
-            echo '<pre>', var_dump($message->_id), '</pre>';
+            echo '<pre>', var_dump($message->$id), '</pre>';
             if (is_array($message) && count($message) == 1)
             {
                 HTTPStatus(200);
