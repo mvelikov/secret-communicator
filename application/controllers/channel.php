@@ -14,6 +14,12 @@ class Channel extends MV_Controller
         $this->load->library('mongo_db');
         $this->mongo_db->insert('channels', array($this->encrypt->encode('channel1')));
     }
+    public function ref()
+    {
+        $this->load->library('mongo_db');
+        $channel = $this->mongo_db->get_where('channels', array('_id' => 5004176041075da375000000));
+        echo '<pre>', var_dump($channel), '</pre>';
+    }
     public function insert()
     {
         if ($this->input->post('channel'))

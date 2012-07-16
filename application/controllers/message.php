@@ -15,7 +15,8 @@ class Message extends MV_Controller
                     ->insert('messages', array(
                         'user' => $this->_user['user'],
                         'message' => $this->encrypt->encode($message),
-                        'channel' => $this->encrypt->encode($channel),
+                        'channel' => $this->encrypt->encode($channel),//5004176041075da375000000
+                        //'channel' => $this->mongo_db->create_dbref('channels', $this->mongo_db->get)
                         'time' => time(),
                     ));
 
