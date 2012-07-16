@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var channel = 'velikov-chat';
+    var channel = '5004174b41075da575000000';
     var userObj = {
         'user' : 'mvelikov',
         'pass' : '123456',

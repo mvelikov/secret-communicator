@@ -9,7 +9,7 @@ class Channel extends MV_Controller
                 ->get('channels');
         $this->load->view('channel/index', array('channels' => $channels_array));
     }
-    public function add()
+    /*public function add()
     {
         $this->load->library('mongo_db');
         $this->mongo_db->insert('channels', array($this->encrypt->encode('channel1')));
@@ -19,7 +19,7 @@ class Channel extends MV_Controller
         $this->load->library('mongo_db');
         $channel = $this->mongo_db->get_where('channels', array('_id' => new MongoID('5004174b41075da575000000')));
         echo '<pre>', var_dump($channel), '</pre>';
-    }
+    }*/
     public function insert()
     {
         if ($this->input->post('channel'))

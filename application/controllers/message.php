@@ -15,7 +15,7 @@ class Message extends MV_Controller
                     ->insert('messages', array(
                         'user' => $this->_user['user'],
                         'message' => $this->encrypt->encode($message),
-                        'channel' => new MongoID('5004174b41075da575000000'),//5004176041075da375000000
+                        'channel' => new MongoID($channel),//5004176041075da375000000
                         //'channel' => $this->mongo_db->create_dbref('channels', $this->mongo_db->get)
                         'time' => time(),
                     ));
@@ -64,7 +64,7 @@ class Message extends MV_Controller
                     ->order_by(array('time' => 'DESC'))
                     ->limit($number)
                     ->get_where('messages', array(
-                        'channel' => $this->encrypt->encode($channel),
+                        'channel' => new MongoID($channel),
                     ));
             echo '<pre>', var_dump($messages), '</pre>';
             if (is_array($messages))
