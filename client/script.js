@@ -85,12 +85,18 @@ $(document).ready(function() {
                     for (var i in data.list) {
                         console.log(data.list[i]);
                         html += '<div class="message">';
-                        html += '<span class="author">';/*mvelikov</span> said: <br />
+                        html += '<span class="author">';
+                        html += data.list[i].user + '</span> said: <br />';
+                        html += data.list[i].message + '<br />';
+                        html += (new Date(data.list[i].time)).toUTCString();
+                        html += '</div>';
+                        /*mvelikov</span> said: <br />
                                 test<br />
                                 Fri, 13 Jul 2012 21:20:42 GMT<br />
                             </div>'*/
                     }
                 }
+                $("#load-last-messages").prepend(html);
             }
         })
     });
