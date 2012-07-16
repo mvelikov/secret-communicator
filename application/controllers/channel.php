@@ -9,6 +9,11 @@ class Channel extends MV_Controller
                 ->get('channels');
         $this->load->view('channel/index', array('channels' => $channels_array));
     }
+    public function add()
+    {
+        $this->load->library('mongo_db');
+        $this->mongo_db->insert('channels', array($this->encrypt->encode('channel1')));
+    }
     public function insert()
     {
         if ($this->input->post('channel'))

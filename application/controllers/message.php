@@ -63,7 +63,7 @@ class Message extends MV_Controller
                     ->order_by(array('time' => 'DESC'))
                     ->limit($number)
                     ->get_where('messages', array(
-                        'channel' => $channel,
+                        'channel' => $this->encrypt->encode($channel),
                     ));
             echo '<pre>', var_dump($messages), '</pre>';
             if (is_array($messages))
