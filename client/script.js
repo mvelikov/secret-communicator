@@ -96,7 +96,7 @@ $(document).ready(function() {
                             </div>'*/
                     }
                 }
-                $("#load-last-messages").prepend(html);
+                $("#load-last-messages").before(html);
             }
         })
     });
