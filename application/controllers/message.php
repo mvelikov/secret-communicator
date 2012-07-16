@@ -59,7 +59,7 @@ class Message extends MV_Controller
         {
             $this->load->library('mongo_db');
             $messages = $this->mongo_db
-                    ->order_by('time' => 'DESC')
+                    ->order_by(array('time' => 'DESC'))
                     ->get_where('messages', array(
                         'channel' => $channel,
                     ));
