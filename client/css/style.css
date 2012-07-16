@@ -70,3 +70,6 @@
     font-weight: bolder;
     font-size: 115%;
 }
+#load-last-messages {
+    margin: 5px 20px;
+}

@@ -63,7 +63,9 @@ class Message extends MV_Controller
                     ->order_by(array('time' => 'DESC'))
                     ->get_where('messages', array(
                         'channel' => $channel,
-                    ));
+                    ))
+                    ->limit($number);
+            echo '<pre>', var_dump($messages), '</pre>';
             if (is_array($messages))
             {
                 HTTPStatus(200);

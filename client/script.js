@@ -67,6 +67,20 @@ $(document).ready(function() {
         }
 
     });
+    $("#load-last-messages").click(function(e){
+        e.preventDefault();
+        $.ajax({
+            url: base_href + 'message/get_many',
+            type: 'post',
+            data: {
+                'channel' : userObj.channel,
+                'number' : 10
+            },
+            success : function(data) {
+                console.log(data);
+            }
+        })
+    });
     setTimeout(subscribe, 2000);
 
     function subscribe (){
