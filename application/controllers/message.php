@@ -66,7 +66,7 @@ class Message extends MV_Controller
                     ->get_where('messages', array(
                         'channel' => new MongoID($channel),
                     ));
-            echo '<pre>', var_dump($messages), '</pre>';
+
             if (is_array($messages))
             {
                 HTTPStatus(200);
@@ -75,6 +75,7 @@ class Message extends MV_Controller
                     'message' => 'List of requested messages',
                     'success' => TRUE,
                     'failed' => FALSE,
+                    'list' => $messages,
                 ));
             }
             else
@@ -85,6 +86,7 @@ class Message extends MV_Controller
                     'message' => 'Error loading messages',
                     'success' => FALSE,
                     'failed' => TRUE,
+                    'list' => array(),
                 ));
             }
         }
