@@ -69,13 +69,19 @@ class Message extends MV_Controller
 
             if (is_array($messages))
             {
+                $messages_list = array();
+                foreach ($messages as $key => $message) {
+                    $message['user'] = $this->encrypt->decode($message['user']);
+                    $message['message'] = $this->encrypt->decode($message['message']);
+                    $messages_list[] = $message;
+                }
                 HTTPStatus(200);
                 $this->load->view('message/index', array(
                     'code' => 200,
                     'message' => 'List of requested messages',
                     'success' => TRUE,
                     'failed' => FALSE,
-                    'list' => $messages,
+                    'list' => $messages_list,
                 ));
             }
             else

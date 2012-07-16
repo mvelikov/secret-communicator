@@ -78,11 +78,17 @@ $(document).ready(function() {
             },
             success : function(data) {
                 console.log(data);
+                var html = '';
                 if (typeof data !== 'undefined'
                     && data.success === true
                     && typeof data.list == 'object') {
-                    for (var msg in data.list) {
-                        console.log(msg);
+                    for (var i in data.list) {
+                        console.log(data.list[i]);
+                        html += '<div class="message">';
+                        html += '<span class="author">';/*mvelikov</span> said: <br />
+                                test<br />
+                                Fri, 13 Jul 2012 21:20:42 GMT<br />
+                            </div>'*/
                     }
                 }
             }
