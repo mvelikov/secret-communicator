@@ -17,7 +17,7 @@ class Channel extends MV_Controller
     public function ref()
     {
         $this->load->library('mongo_db');
-        $channel = $this->mongo_db->get_where('channels' => array());
+        $channel = $this->mongo_db->get_where('channels', array());
         echo '<pre>', var_dump($channel), '</pre>';
     }
     public function insert()
