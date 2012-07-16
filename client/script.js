@@ -5,7 +5,7 @@ $(document).ready(function() {
         'pass' : '123456',
         'channel' : channel
     };
-    var base_href = 'http://localhost/velikov-chat.phpfogapp.com/';
+    var base_href = 'http://velikov-chat.phpfogapp.com/';
     
     $("#login-submit").click(function (e) {
         e.preventDefault();
