@@ -18,7 +18,7 @@ class Message extends MV_Controller
                         'channel' => $this->enctypt->encode($channel),
                         'time' => time(),
                     ));
-            echo '<pre>', var_dump($message->{'$id'}), '</pre>';
+            //echo '<pre>', var_dump($message->{'$id'}), '</pre>';
             if ( ! empty($message->{'$id'}))
             {
                 HTTPStatus(200);
