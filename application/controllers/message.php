@@ -14,8 +14,8 @@ class Message extends MV_Controller
             $message = $this->mongo_db
                     ->insert('messages', array(
                         'user' => $this->_user['user'],
-                        'message' => $this->enctypt->encode($message),
-                        'channel' => $this->enctypt->encode($channel),
+                        'message' => $this->encrypt->encode($message),
+                        'channel' => $this->encrypt->encode($channel),
                         'time' => time(),
                     ));
             //echo '<pre>', var_dump($message->{'$id'}), '</pre>';
