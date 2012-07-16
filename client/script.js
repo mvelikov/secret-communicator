@@ -78,6 +78,13 @@ $(document).ready(function() {
             },
             success : function(data) {
                 console.log(data);
+                if (typeof data !== 'undefined'
+                    && data.success === true
+                    && typeof data.list == 'object') {
+                    for (var msg in data.list) {
+                        console.log(msg);
+                    }
+                }
             }
         })
     });
