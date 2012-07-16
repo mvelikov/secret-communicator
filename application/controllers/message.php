@@ -76,7 +76,7 @@ class Message extends MV_Controller
                     $messages_list[] = $message;
                 }
                 HTTPStatus(200);
-                $this->load->view('message/index', array(
+                $this->load->view('message/list', array(
                     'code' => 200,
                     'message' => 'List of requested messages',
                     'success' => TRUE,
@@ -87,7 +87,7 @@ class Message extends MV_Controller
             else
             {
                 HTTPStatus(200);
-                $this->load->view('message/index', array(
+                $this->load->view('message/list', array(
                     'code' => 200,
                     'message' => 'Error loading messages',
                     'success' => FALSE,
