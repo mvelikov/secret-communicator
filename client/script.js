@@ -46,7 +46,6 @@ $(document).ready(function() {
                 link = prompt('Enter name for the link', '');
                 console.log(title, link);
                 text = '<a href="' + text + '" title="' + title + '" target="_blank">' + link + '</a>';
-                return;
             }
             $.ajax({
                 url : base_href + 'message/insert',
