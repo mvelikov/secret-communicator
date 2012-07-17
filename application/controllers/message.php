@@ -55,6 +55,12 @@ class Message extends MV_Controller
     {
         $channel = $this->input->post('channel');
         $number = $this->input->post('number');
+        $page = $this->input->post('page');
+        if ( ! $page OR $page <= 0)
+        {
+            $page = 1;
+        }
+        $skip = ((int)$page - 1) * MESSAGES_PER_PAGE;
 
         if ($channel && $channel != ''
             && $number && $number > 0)
@@ -62,11 +68,15 @@ class Message extends MV_Controller
             $this->load->library('mongo_db');
             $messages = $this->mongo_db
                     ->order_by(array('time' => 'DESC'))
-                    ->limit($number)
+                    //->limit($number)
+                    ->skip($skip)
                     ->get_where('messages', array(
                         'channel' => new MongoID($channel),
                     ));
-
+            $count = count($messages);
+            echo '<pre>', var_dump($count, $messages), '</pre>';
+            $messages = array_slice($messages, $skip, MESSAGES_PER_PAGE);
+            echo '<pre>$messages ', var_dump($messages), '</pre>';
             if (is_array($messages))
             {
                 $messages_list = array();
