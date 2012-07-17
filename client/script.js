@@ -66,7 +66,6 @@ $(document).ready(function() {
             })
 
         }
-
     });
     $("#load-last-messages").click(function(e){
         e.preventDefault();
