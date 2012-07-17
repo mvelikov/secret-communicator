@@ -78,7 +78,7 @@ $(document).ready(function() {
                 'page' : page,
             },
             success : function(data) {
-                console.log(data);
+
                 var html = '';
                 if (typeof data !== 'undefined'
                     && data.success === true
