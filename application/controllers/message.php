@@ -93,6 +93,8 @@ class Message extends MV_Controller
                     'failed' => FALSE,
                     'list' => $messages_list,
                     'count' => $count,
+                    'page' => $page,
+                    'per_page' => MESSAGES_PER_PAGE,
                 )));
             }
             else

@@ -5,6 +5,7 @@ $(document).ready(function() {
         'pass' : '123456',
         'channel' : channel
     };
+    var page = 1, count = 0, per_page = 10;
     var base_href = 'http://velikov-chat.phpfogapp.com/';
 
     $("#login-submit").click(function (e) {
@@ -88,13 +89,15 @@ $(document).ready(function() {
                         html += '<span class="author">';
                         html += data.list[i].user + '</span> said: <br />';
                         html += data.list[i].message + '<br />';
-                        html += (new Date(data.list[i].time)).toUTCString();
+                        html += (new Date(data.list[i].time * 1000)).toUTCString();
                         html += '</div>';
-                        /*mvelikov</span> said: <br />
-                                test<br />
-                                Fri, 13 Jul 2012 21:20:42 GMT<br />
-                            </div>'*/
                     }
+                }
+                page = data.page || page;
+                count = data.count || count;
+                per_page = data.per_page || per_page;
+                if ((page - 1) * per_page > count) {
+                    $("#load-last-messages").remove();
                 }
                 $("#load-last-messages").before(html);
             }
