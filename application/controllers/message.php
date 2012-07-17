@@ -51,6 +51,21 @@ class Message extends MV_Controller
         }
     }
 
+    public function get($page = 1, $skip = 0)
+    {
+        $this->load->library('mongo_db');
+        $messages = $this->mongo_db
+                ->order_by(array('time' => 'DESC'))
+                //->limit($number)
+                ->offset($skip)
+                ->get_where('messages', array(
+                    'channel' => new MongoID($channel),
+                ));
+
+        $count = count($messages);
+        echo '<pre>', var_dump($messages), '</pre>';
+    }
+
     public function get_many()
     {
         $channel = $this->input->post('channel');
