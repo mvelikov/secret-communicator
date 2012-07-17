@@ -73,7 +73,7 @@ class Message extends MV_Controller
                     ->get_where('messages', array(
                         'channel' => new MongoID($channel),
                     ));
-            echo '<pre>messages ', var_dump($messages), '</pre>';
+
             $count = count($messages);
 
             $messages = array_slice($messages, $skip, MESSAGES_PER_PAGE);
