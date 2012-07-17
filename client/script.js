@@ -75,7 +75,8 @@ $(document).ready(function() {
             type: 'post',
             data: {
                 'channel' : userObj.channel,
-                'number' : 10
+                'number' : 10,
+                'page' : page + 1,
             },
             success : function(data) {
                 console.log(data);
