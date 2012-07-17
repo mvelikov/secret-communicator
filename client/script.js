@@ -69,6 +69,7 @@ $(document).ready(function() {
     });
     $("#load-last-messages").click(function(e){
         e.preventDefault();
+        console.log(page);
         $.ajax({
             url: base_href + 'message/get_many',
             type: 'post',
