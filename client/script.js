@@ -41,6 +41,13 @@ $(document).ready(function() {
         var text = $("#message").val();
         $("#message").val('');
         if (text != '') {
+            if (text.match(/https?:\/\/(www\.)?([a-zA-Z0-9_%]*)\b\.[a-z]{2,4}(\.[a-z]{2})?(.*)/gi)) {
+                title = prompt('Enter title for the link', '');
+                link = prompt('Enter name for the link', '');
+                console.log(title, link);
+                text = '<a href="' + text + '" title="' + title + '" target="_blank">' + link + '</a>';
+                return;
+            }
             $.ajax({
                 url : base_href + 'message/insert',
                 type: 'post',
