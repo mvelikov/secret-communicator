@@ -86,24 +86,26 @@ class Message extends MV_Controller
                     $messages_list[] = $message;
                 }
                 HTTPStatus(200);
-                $this->load->view('message/list', array(
+                $this->load->view('message/list', array('data' => array(
                     'code' => 200,
                     'message' => 'List of requested messages',
                     'success' => TRUE,
                     'failed' => FALSE,
                     'list' => $messages_list,
-                ));
+                    'count' => $count,
+                )));
             }
             else
             {
                 HTTPStatus(200);
-                $this->load->view('message/list', array(
+                $this->load->view('message/list', array('data' => array(
                     'code' => 200,
                     'message' => 'Error loading messages',
                     'success' => FALSE,
                     'failed' => TRUE,
                     'list' => array(),
-                ));
+                    'count' => FALSE,
+                )));
             }
         }
         else
