@@ -99,10 +99,10 @@ $(document).ready(function() {
                         html += '</div>';
                     }
                 }
-                page = data.page || page;
+                page++;
                 count = data.count || count;
                 per_page = data.per_page || per_page;
-                if ((page - 1) * per_page > count) {
+                if ((data.page - 1) * per_page > count) {
                     $("#load-last-messages").remove();
                 }
                 $("#load-last-messages").before(html);
