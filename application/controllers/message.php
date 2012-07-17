@@ -84,7 +84,7 @@ class Message extends MV_Controller
             $messages = $this->mongo_db
                     ->order_by(array('time' => 'DESC'))
                     //->limit($number)
-                    ->offset($skip)
+                    //->offset($skip)
                     ->get_where('messages', array(
                         'channel' => new MongoID($channel),
                     ));

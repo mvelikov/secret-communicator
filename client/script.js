@@ -102,7 +102,7 @@ $(document).ready(function() {
                 page++;
                 count = data.count || count;
                 per_page = data.per_page || per_page;
-                if ((data.page - 1) * per_page > count) {
+                if ((data.page - 1) * per_page >= count) {
                     $("#load-last-messages").remove();
                 }
                 $("#load-last-messages").before(html);
