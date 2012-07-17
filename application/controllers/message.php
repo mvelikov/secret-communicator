@@ -74,9 +74,9 @@ class Message extends MV_Controller
                         'channel' => new MongoID($channel),
                     ));
             $count = count($messages);
-            echo '<pre>', var_dump($count, $messages), '</pre>';
+
             $messages = array_slice($messages, $skip, MESSAGES_PER_PAGE);
-            echo '<pre>$messages ', var_dump($messages), '</pre>';
+
             if (is_array($messages))
             {
                 $messages_list = array();
