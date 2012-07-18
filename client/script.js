@@ -102,10 +102,10 @@ $(document).ready(function() {
                 page++;
                 count = data.count || count;
                 per_page = data.per_page || per_page;
+                $("#load-last-messages").before(html);
                 if ((data.page) * per_page >= count) {
                     $("#load-last-messages").remove();
                 }
-                $("#load-last-messages").before(html);
             }
         })
     });
