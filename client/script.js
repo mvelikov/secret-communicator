@@ -74,7 +74,7 @@ $(document).ready(function() {
     });
     $("#load-last-messages").click(function(e){
         e.preventDefault();
-        console.log(page);
+
         $.ajax({
             url: base_href + 'message/get_many',
             type: 'post',
@@ -90,7 +90,6 @@ $(document).ready(function() {
                     && data.success === true
                     && typeof data.list == 'object') {
                     for (var i in data.list) {
-                        console.log(data.list[i]);
                         html += '<div class="message">';
                         html += '<span class="author">';
                         html += data.list[i].user + '</span> said: <br />';
