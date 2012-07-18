@@ -44,7 +44,15 @@ $(document).ready(function() {
             if (text.match(/https?:\/\/(www\.)?([a-zA-Z0-9_%]*)\b\.[a-z]{2,4}(\.[a-z]{2})?(.*)/gi)) {
                 title = prompt('Enter title for the link', '');
                 link = prompt('Enter name for the link', '');
-                text = '<a href="' + text + '" title="' + title + '" target="_blank">' + link + '</a>';
+                if (title !== '' && link !== '') {
+                    text = '<a href="' + text + '" title="' + title + '" target="_blank">' + link + '</a>';
+                } else if (title === '') {
+                    text = '<a href="' + text + '" target="_blank">' + link + '</a>';
+                } else if (link === '') {
+                    text = '<a href="' + text + '" target="_blank">' + text + '</a>';
+                } else {
+                    return;
+                }
             }
             $.ajax({
                 url : base_href + 'message/insert',
