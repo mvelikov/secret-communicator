@@ -178,8 +178,12 @@ $(document).ready(function() {
 });
 $(function () {
     $('#fileupload').fileupload({
+        url: base_href + 'file/index',
+        maxFileSize: 5000000,
+        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
         dataType: 'json',
         done: function (e, data) {
+            console.log(e, data);
             $.each(data.result, function (index, file) {
                 $('<p/>').text(file.name).appendTo(document.body);
             });
