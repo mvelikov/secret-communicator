@@ -174,10 +174,9 @@ $(document).ready(function() {
             return htmlEscapes[match];
         });
     };
-    $('#uploadedfile').fileupload({
+    $('#userfile').fileupload({
         url: base_href + 'file/index',
         maxFileSize: 5000000,
-        acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
         dataType: 'json',
         done: function (e, data) {
             console.log(e, data);
