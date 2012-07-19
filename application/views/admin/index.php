@@ -17,7 +17,7 @@
 <?php echo $error;?>
 
 <div id="fileupload">
-    <form action="<?php echo base_url('upload/do_upload'); ?>" method="POST" enctype="multipart/form-data">
+    <form action="upload/do_upload" method="POST" enctype="multipart/form-data">
         <div class="fileupload-buttonbar">
             <label class="fileinput-button">
                 <span>Add files...</span>
