@@ -45,14 +45,14 @@ class S3
 	const STORAGE_CLASS_STANDARD = 'STANDARD';
 	const STORAGE_CLASS_RRS = 'REDUCED_REDUNDANCY';
 
-	private static $__accessKey = null; // AWS Access key
-	private static $__secretKey = null; // AWS Secret key
+	private static $__accessKey = "AKIAJ7X5A4GWGKUBVVQQ"; // AWS Access key
+	private static $__secretKey = "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"; // AWS Secret key
 	private static $__sslKey = null;
 
-	public static $endpoint = 's3.amazonaws.com';
+	public static $endpoint = 's3-website-eu-west-1.amazonaws.com';
 	public static $proxy = null;
 
-	public static $useSSL = false;
+	public static $useSSL = FALSE;
 	public static $useSSLValidation = true;
 	public static $useExceptions = false;
 
