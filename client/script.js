@@ -174,7 +174,7 @@ $(document).ready(function() {
             return htmlEscapes[match];
         });
     };
-    $('#fileupload').fileupload({
+    $('#uploadedfile').fileupload({
         url: base_href + 'file/index',
         maxFileSize: 5000000,
         acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
