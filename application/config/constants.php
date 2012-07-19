@@ -22,6 +22,7 @@ define('MESSAGES_PER_PAGE', 10);
 define('MAIN_BUCKET', 'mvelikov-telerik-hw');
 define('KEY', 'AKIAJ7X5A4GWGKUBVVQQ');
 define('SECRET', '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');
+define('IS_AJAX', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
 /*
 |--------------------------------------------------------------------------
 | File Stream Modes
