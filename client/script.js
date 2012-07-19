@@ -174,7 +174,7 @@ $(document).ready(function() {
             return htmlEscapes[match];
         });
     };
-    $('#userfile').fileupload({
+    /*$('#userfile').fileupload({
         url: base_href + 'file/index',
         maxFileSize: 5000000,
         dataType: 'json',
@@ -184,5 +184,35 @@ $(document).ready(function() {
                 $('<p/>').text(file.name).appendTo(document.body);
             });
         }
+    });*/
+    $("#upload-btn").click(function (e) {
+        $.ajaxFileUpload
+        (
+            {
+                url: base_href + 'file/index',
+                secureuri:true,
+                fileElementId:'uploadedfile',
+                dataType: 'json',
+                data:{name:'logan', id:'id'},
+                success: function (data, status)
+                {
+                    console.log(data, status);
+                    if(typeof(data.error) != 'undefined')
+                    {
+                        if(data.error != '')
+                        {
+                            alert(data.error);
+                        }else
+                        {
+                            alert(data.msg);
+                        }
+                    }
+                },
+                error: function (data, status, e)
+                {
+                    console.log(data, status, e);
+                }
+            }
+        )
     });
 });
