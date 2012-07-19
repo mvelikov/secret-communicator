@@ -2,7 +2,7 @@
 	<head>
 	<title>Upload Form</title>
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" id="theme">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>js/jquery.fileupload-ui.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/jquery.fileupload-ui.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css">
 	<style>
 	body {
@@ -17,7 +17,7 @@
 <?php echo $error;?>
 
 <div id="fileupload">
-    <form action="upload/do_upload" method="POST" enctype="multipart/form-data">
+    <form action="<?php echo base_url('upload/do_upload'); ?>" method="POST" enctype="multipart/form-data">
         <div class="fileupload-buttonbar">
             <label class="fileinput-button">
                 <span>Add files...</span>
