@@ -4,12 +4,17 @@ class File extends CI_Controller
 {
 	public function index()
 	{
+		if ( ! empty($_FILES['uploadedfile']['tmp_name']) && file_exists($_FILES['uploadedfile']['tmp_name']) 
+			&& ! empty($_FILES['uploadedfile']['name']) && $_FILES['uploadedfile']['name'] != '')
+		{
+			$this->load->library('s3');
 
-		$this->load->library('s3');
+			$file = $this->s3->inputFile($_FILES['uploadedfile']['tmp_name']);
+			$ext = explode('.', $_FILES['uploadedfile']['name']);
+			$name = $this->encrypt->sha1($_FILES['uploadedfile']['name']) . time() . '.' . end($ext);
+			$res = $this->s3->putObject($file, MAIN_BUCKET, $name);
 
-		$bucket = $this->s3->getBucket(MAIN_BUCKET);
-		echo '<pre>', var_dump($bucket), '</pre>';
-		$res = $this->s3->putObject($_FILES['uploadedfile']['name'], $bucket, $_FILES['uploadedfile']['tmp_name'], S3::ACL_PUBLIC_READ);
-		echo '<pre>', var_dump($res), '</pre>';
+			echo '<pre>', var_dump($name), '</pre>';
+		}
 	}
 }
