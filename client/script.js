@@ -174,9 +174,6 @@ $(document).ready(function() {
             return htmlEscapes[match];
         });
     };
-
-});
-$(function () {
     $('#fileupload').fileupload({
         url: base_href + 'file/index',
         maxFileSize: 5000000,
