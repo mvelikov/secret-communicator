@@ -188,33 +188,30 @@ $(document).ready(function() {
         }
     });*/
     $("#upload-btn").click(function (e) {
-        $.ajaxFileUpload
-        (
+        $.ajaxFileUpload({
+            url: base_href + 'file/index',
+            secureuri:false,
+            fileElementId:'userfile',
+            dataType: 'json',
+            data:{'pass' : userObj.pass},
+            success: function (data, status)
             {
-                url: base_href + 'file/code',
-                secureuri:true,
-                fileElementId:'userfile',
-                dataType: 'json',
-                data:{'pass' : userObj.pass},
-                success: function (data, status)
+                console.log(data, status);
+                if(typeof(data.error) != 'undefined')
                 {
-                    console.log(data, status);
-                    if(typeof(data.error) != 'undefined')
+                    if(data.error != '')
                     {
-                        if(data.error != '')
-                        {
-                            alert(data.error);
-                        }else
-                        {
-                            alert(data.msg);
-                        }
+                        alert(data.error);
+                    }else
+                    {
+                        alert(data.msg);
                     }
-                },
-                error: function (data, status, e)
-                {
-                    console.log(data, status, e);
                 }
+            },
+            error: function (data, status, e)
+            {
+                console.log(data, status, e);
             }
-        )
+        });
     });
 });
