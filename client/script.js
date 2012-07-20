@@ -187,7 +187,8 @@ $(document).ready(function() {
             });
         }
     });*/
-    $("#upload-btn").click(function (e) {
+    $("#upload-btn").submit(function (e) {
+        e.preventDefault();
         $.ajaxFileUpload({
             url: base_href + 'file/index',
             secureuri:false,
@@ -213,5 +214,6 @@ $(document).ready(function() {
                 console.log(data, status, e);
             }
         });
+        return false;
     });
 });
