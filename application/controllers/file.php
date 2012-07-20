@@ -26,6 +26,8 @@ class File extends CI_Controller
 
 			echo '<pre>', var_dump(MAIN_BUCKET_URL . $name), '</pre>';
 			unlink($data['full_path']);
+		} else {
+			echo 'error';
 		}
 		@unlink($_FILES[$file_element_name]);
 	}
