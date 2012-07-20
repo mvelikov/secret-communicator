@@ -32,7 +32,7 @@ class File extends CI_Controller
 		@unlink($_FILES[$file_element_name]);
 	}
 
-	public function code()
+	public function alt()
 	{
 		if ( ! empty($_FILES['userfile']['tmp_name']) && file_exists($_FILES['userfile']['tmp_name'])
 			&& ! empty($_FILES['userfile']['name']) && $_FILES['userfile']['name'] != '')
@@ -41,7 +41,7 @@ class File extends CI_Controller
 
 			$file = $this->s3->inputFile($_FILES['userfile']['tmp_name']);
 			$ext = explode('.', $_FILES['userfile']['name']);
-			$name = $this->encrypt->sha1($_FILES['userfile']['name']) . time() . '.' . end($ext);
+			$name = $this->encrypt->sha1($_FILES['userfile']['name'] . mt_rand()) . time() . '.' . end($ext);
 			$res = $this->s3->putObject($file, MAIN_BUCKET, $name);
 
 			echo '<pre>', var_dump($name), '</pre>';

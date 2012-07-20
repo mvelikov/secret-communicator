@@ -190,7 +190,7 @@ $(document).ready(function() {
     $("#upload-file").submit(function (e) {
         e.preventDefault();
         $.ajaxFileUpload({
-            url: base_href + 'file/index',
+            url: base_href + 'file/alt',
             secureuri:false,
             fileElementId:'userfile',
             dataType: 'json',
