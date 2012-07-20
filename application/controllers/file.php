@@ -34,6 +34,7 @@ class File extends MV_Controller
 
 	public function alt()
 	{
+		$error = '';
 		if ( ! empty($_FILES['userfile']['tmp_name']) && file_exists($_FILES['userfile']['tmp_name'])
 			&& ! empty($_FILES['userfile']['name']) && $_FILES['userfile']['name'] != '')
 		{
@@ -53,7 +54,7 @@ class File extends MV_Controller
 		} else {
 			$error = 'File not submitted';
 		}
-		if ($error) {
+		if ($error != '') {
 			$this->load->view('file/error', array('error' => $error));
 		}
 		@unlink($_FILES['userfile']);
