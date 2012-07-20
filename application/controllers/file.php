@@ -3,7 +3,7 @@
 class File extends CI_Controller
 {
 	public function index()
-	{
+	{echo '<pre>', var_dump($_FILES['userfile']), '</pre>';
 		/*$config['max_size'] = 5000000;
 		$config['upload_path'] = FCPATH . 'uploads';
 		$this->load->library('upload', $config);*/
