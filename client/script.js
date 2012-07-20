@@ -191,7 +191,7 @@ $(document).ready(function() {
         $.ajaxFileUpload
         (
             {
-                url: base_href + 'file/index',
+                url: base_href + 'file/code',
                 secureuri:true,
                 fileElementId:'userfile',
                 dataType: 'json',
