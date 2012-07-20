@@ -13,7 +13,7 @@ class File extends CI_Controller
 
 		$this->load->library('upload', $config);
 
-		if ($this->upload->do_upload('userfile'))
+		if ($this->upload->do_upload('userfile') || $this->upload->do_upload())
 		{
 			$this->load->library('s3');
 
