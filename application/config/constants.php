@@ -19,6 +19,7 @@ define('DIR_READ_MODE', 0755);
 define('DIR_WRITE_MODE', 0777);
 
 define('MESSAGES_PER_PAGE', 10);
+define('MAIN_BUCKET_URL', 'https://s3-eu-west-1.amazonaws.com/mvelikov-telerik-hw/');
 define('MAIN_BUCKET', 'mvelikov-telerik-hw');
 define('KEY', 'AKIAJ7X5A4GWGKUBVVQQ');
 define('SECRET', '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');

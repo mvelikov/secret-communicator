@@ -59,7 +59,8 @@ $(document).ready(function() {
                 type: 'post',
                 data : {
                     'message' : text,
-                    'channel' : userObj.channel
+                    'channel' : userObj.channel,
+                    'pass' : userObj.pass
                 },
                 success : function (data) {
                     if (typeof data !== 'undefined'
@@ -90,6 +91,7 @@ $(document).ready(function() {
                 'channel' : userObj.channel,
                 'number' : 10,
                 'page' : page,
+                'pass' : userObj.pass
             },
             success : function(data) {
 
@@ -191,9 +193,9 @@ $(document).ready(function() {
             {
                 url: base_href + 'file/index',
                 secureuri:true,
-                fileElementId:'uploadedfile',
+                fileElementId:'userfile',
                 dataType: 'json',
-                data:{name:'logan', id:'id'},
+                data:{'pass' : userObj.pass},
                 success: function (data, status)
                 {
                     console.log(data, status);
