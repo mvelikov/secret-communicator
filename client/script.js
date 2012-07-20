@@ -217,4 +217,4 @@ $(document).ready(function() {
         return false;
     });
 });
-jQuery.handleError = function () {}
+jQuery.handleError = function (a,b,c) {console.log(a,b,c);}
