@@ -187,7 +187,7 @@ $(document).ready(function() {
             });
         }
     });*/
-    $("#upload-btn").submit(function (e) {
+    $("#upload-file").submit(function (e) {
         e.preventDefault();
         $.ajaxFileUpload({
             url: base_href + 'file/index',
