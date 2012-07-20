@@ -44,7 +44,17 @@ class File extends MV_Controller
 			$name = $this->encrypt->sha1($_FILES['userfile']['name'] . mt_rand()) . time() . '.' . end($ext);
 			$res = $this->s3->putObject($file, MAIN_BUCKET, $name);
 
-			echo '<pre>', var_dump($name), '</pre>';
+			if ($res) {
+				$this->load->view('file/success', array('file' => $name));
+			} else {
+				$error = 'File not uploaded';
+			}
+
+		} else {
+			$error = 'File not submitted';
+		}
+		if ($error) {
+			$this->load->view('file/error', array('error' => $error));
 		}
 		@unlink($_FILES['userfile']);
 	}
