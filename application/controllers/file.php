@@ -29,7 +29,7 @@ class File extends CI_Controller
 		} else {
 			echo 'error';
 		}
-		@unlink($_FILES[$file_element_name]);
+		@unlink($_FILES['userfile']);
 	}
 
 	public function alt()
@@ -46,6 +46,7 @@ class File extends CI_Controller
 
 			echo '<pre>', var_dump($name), '</pre>';
 		}
+		@unlink($_FILES['userfile']);
 	}
 
 }
