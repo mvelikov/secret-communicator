@@ -220,7 +220,7 @@ $(document).ready(function() {
         action: 'http://velikov-chat.phpfogapp.com/file/index',
         name: 'userfile',
         onComplete : function(file){
-            $('<li></li>').appendTo($('#example3 .files')).text(file);
+            console.log(file);
         }
     });
 });
