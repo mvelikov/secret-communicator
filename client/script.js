@@ -191,7 +191,7 @@ $(document).ready(function() {
         e.preventDefault();
         $.ajaxFileUpload({
             url: base_href + 'file/alt',
-            secureuri:false,
+            secureuri:true,
             fileElementId:'userfile',
             dataType: 'json',
             data:{'pass' : userObj.pass},
@@ -211,10 +211,10 @@ $(document).ready(function() {
             },
             error: function (data, status, e)
             {
-                console.log(data, status, e);
+                console.log('error ', data, status, e);
             }
         });
         return false;
     });
 });
-jQuery.handleError = function (a,b,c) {console.log(a,b,c);}
+jQuery.handleError = function (a,b,c) {console.log(a,b,c); return true;}
