@@ -10,6 +10,7 @@ class File extends MV_Controller
 		$config['upload_path'] = '/tmp';
 		$config['max_size']	= '100000000';
 		$config['allowed_types'] = '*';
+		$error = '';
 
 		$this->load->library('upload', $config);
 
