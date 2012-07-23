@@ -219,8 +219,8 @@ $(document).ready(function() {
     new AjaxUpload('userfile', {
         action: 'http://velikov-chat.phpfogapp.com/file/index',
         name: 'userfile',
-        onComplete : function(file){
-            console.log('123', file);
+        onComplete : function(file, data){
+            console.log('123', file, data);
         }
     });
 });
