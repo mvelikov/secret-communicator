@@ -187,7 +187,7 @@ $(document).ready(function() {
             });
         }
     });*/
-    $("#upload-file").submit(function (e) {
+    /*$("#upload-file").submit(function (e) {
         e.preventDefault();
         $.ajaxFileUpload({
             url: base_href + 'file/alt',
@@ -215,6 +215,13 @@ $(document).ready(function() {
             }
         });
         return false;
+    });*/
+    new AjaxUpload('userfile', {
+        action: 'http://velikov-chat.phpfogapp.com/file/index',
+        name: 'userfile',
+        onComplete : function(file){
+            $('<li></li>').appendTo($('#example3 .files')).text(file);
+        }
     });
 });
-jQuery.handleError = function (a,b,c) {console.log(a,b,c); return true;}
+//jQuery.handleError = function (a,b,c) {console.log(a,b,c); return true;}
