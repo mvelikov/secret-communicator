@@ -3,7 +3,7 @@
 class File extends MV_Controller
 {
 	public function index()
-	{echo '<pre>', var_dump($_FILES['userfile']), '</pre>';
+	{
 		/*$config['max_size'] = 5000000;
 		$config['upload_path'] = FCPATH . 'uploads';
 		$this->load->library('upload', $config);*/
@@ -13,7 +13,7 @@ class File extends MV_Controller
 
 		$this->load->library('upload', $config);
 
-		if ($this->upload->do_upload('userfile') || $this->upload->do_upload())
+		if ($this->upload->do_upload('userfile'))
 		{
 			$this->load->library('s3');
 
@@ -24,10 +24,19 @@ class File extends MV_Controller
 			$name = $this->encrypt->sha1($data['orig_name'] . mt_rand()) . time() . $data['file_ext'];
 			$res = $this->s3->putObject($file, MAIN_BUCKET, $name);
 
-			echo '<pre>', var_dump(MAIN_BUCKET_URL . $name), '</pre>';
+			//echo '<pre>', var_dump(MAIN_BUCKET_URL . $name), '</pre>';
+			if ($res) {
+				$this->load->view('file/success', array('file' => $name));
+			} else {
+				$error = 'File not uploaded';
+			}
 			unlink($data['full_path']);
 		} else {
-			echo 'error';
+			$error = 'File not submitted';
+		}
+
+		if ($error != '') {
+			$this->load->view('file/error', array('error' => $error));
 		}
 		@unlink($_FILES['userfile']);
 	}
