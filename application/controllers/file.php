@@ -7,7 +7,7 @@ class File extends MV_Controller
 		/*$config['max_size'] = 5000000;
 		$config['upload_path'] = FCPATH . 'uploads';
 		$this->load->library('upload', $config);*/
-		$config['upload_path'] = './uploads/';
+		$config['upload_path'] = '/tmp';
 		$config['max_size']	= '100000000';
 		$config['allowed_types'] = '*';
 
