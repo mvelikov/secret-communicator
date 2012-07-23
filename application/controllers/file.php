@@ -34,6 +34,7 @@ class File extends MV_Controller
 
 	public function alt()
 	{
+		echo '<pre>', var_dump($_FILES), '</pre>';
 		$error = '';
 		if ( ! empty($_FILES['userfile']['tmp_name']) && file_exists($_FILES['userfile']['tmp_name'])
 			&& ! empty($_FILES['userfile']['name']) && $_FILES['userfile']['name'] != '')
