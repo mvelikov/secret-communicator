@@ -27,6 +27,7 @@ class File extends MV_Controller
 
 			//echo '<pre>', var_dump(MAIN_BUCKET_URL . $name), '</pre>';
 			if ($res) {
+				HTTPStatus(200);
 				$this->load->view('file/success', array('file' => $name));
 			} else {
 				$error = 'File not uploaded';
