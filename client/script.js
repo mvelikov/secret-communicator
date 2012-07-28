@@ -8,7 +8,7 @@ $(document).ready(function() {
     var page = 1, count = 0, per_page = 10;
     var base_href = 'http://velikov-chat.phpfogapp.com/';
 
-    $("#login-submit").click(function (e) {
+    $("#login-submit").live('click', function (e) {
         e.preventDefault();
         var user = $("#user").val(),
         pass = $("#pass").val();
@@ -36,12 +36,22 @@ $(document).ready(function() {
         }
     });
     $("body").append('<div pub-key="pub-0fe3be58-2601-4fba-b4b9-86af7844be5b" sub-key="sub-62ca94b0-b883-11e1-b535-e7b64b0eaf0b" ssl="on" origin="pubsub.pubnub.com" id="pubnub"></div><script src="http://cdn.pubnub.com/pubnub-3.1.min.js"></script>');
-
-    $("#send").click(function () {
+    $("#message").live('keypress', function (e) {
+       if (e.keyCode == 13) {
+           alert('enter');
+       } 
+    });
+//        .focusin(function() {
+//           $(this) .key
+//        })
+//        .focusout(function () {
+//            
+//        });
+    
+    $("#send").live('click', function () {
         var text = $("#message").val(), escaped_text = escape(text);
         $("#message").val('');
         if (text != '') {
-            console.log(text, text.match(/https?:\/\/(www\.)?([a-zA-Z0-9_%\-]*)\b\.[a-z]{2,4}(\.[a-z]{2})?(.*)?/gi));
             if (text.match(/https?:\/\/(www\.)?([a-zA-Z0-9_%\-]*)\b\.[a-z]{2,4}(\.[a-z]{2})?(.*)?/gi)) {
                 var title = prompt('Enter title for the link', ''),
                 link = prompt('Enter name for the link', '');
@@ -84,7 +94,7 @@ $(document).ready(function() {
 
         }
     });
-    $("#load-last-messages").click(function(e){
+    $("#load-last-messages").live('click', function(e){
         e.preventDefault();
 
         $.ajax({
@@ -140,14 +150,14 @@ $(document).ready(function() {
             },
 
             disconnect : function() {        // LOST CONNECTION.
-                console.log(
+                alert(
                     "Connection Lost." +
                     "Will auto-reconnect when Online."
                     );
             },
 
             reconnect  : function() {        // CONNECTION RESTORED.
-                console.log("And we're Back!");
+                alert("And we're Back!");
             },
 
             connect    : function() {        // CONNECTION ESTABLISHED.
@@ -179,46 +189,7 @@ $(document).ready(function() {
             return htmlEscapes[match];
         });
     };
-    /*$('#userfile').fileupload({
-        url: base_href + 'file/index',
-        maxFileSize: 5000000,
-        dataType: 'json',
-        done: function (e, data) {
-            console.log(e, data);
-            $.each(data.result, function (index, file) {
-                $('<p/>').text(file.name).appendTo(document.body);
-            });
-        }
-    });*/
-    /*$("#upload-file").submit(function (e) {
-        e.preventDefault();
-        $.ajaxFileUpload({
-            url: base_href + 'file/alt',
-            secureuri:true,
-            fileElementId:'userfile',
-            dataType: 'json',
-            data:{'pass' : userObj.pass},
-            success: function (data, status)
-            {
-                console.log(data, status);
-                if(typeof(data.error) != 'undefined')
-                {
-                    if(data.error != '')
-                    {
-                        alert(data.error);
-                    }else
-                    {
-                        alert(data.msg);
-                    }
-                }
-            },
-            error: function (data, status, e)
-            {
-                console.log('error ', data, status, e);
-            }
-        });
-        return false;
-    });*/
+
     new AjaxUpload('userfile', {
         action: 'http://velikov-chat.phpfogapp.com/file/index',
         name: 'userfile',
@@ -245,5 +216,45 @@ $(document).ready(function() {
 //        $(this).prop('disabled', true);
 //        console.log("click");
 //    });
+/*$('#userfile').fileupload({
+    url: base_href + 'file/index',
+    maxFileSize: 5000000,
+    dataType: 'json',
+    done: function (e, data) {
+        console.log(e, data);
+        $.each(data.result, function (index, file) {
+            $('<p/>').text(file.name).appendTo(document.body);
+        });
+    }
+});*/
+/*$("#upload-file").submit(function (e) {
+    e.preventDefault();
+    $.ajaxFileUpload({
+        url: base_href + 'file/alt',
+        secureuri:true,
+        fileElementId:'userfile',
+        dataType: 'json',
+        data:{'pass' : userObj.pass},
+        success: function (data, status)
+        {
+            console.log(data, status);
+            if(typeof(data.error) != 'undefined')
+            {
+                if(data.error != '')
+                {
+                    alert(data.error);
+                }else
+                {
+                    alert(data.msg);
+                }
+            }
+        },
+        error: function (data, status, e)
+        {
+            console.log('error ', data, status, e);
+        }
+    });
+    return false;
+});*/
 });
 //jQuery.handleError = function (a,b,c) {console.log(a,b,c); return true;}
