@@ -227,7 +227,7 @@ $(document).ready(function() {
             $("#userfile").removeAttr('disabled');
         }
     });
-    $("#userfile").live('click', function() {
+    $('input[type=file]').live('change', function(e){
         $(this).attr('disabled', 'disabled');
         console.log("click");
     });
