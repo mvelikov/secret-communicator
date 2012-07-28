@@ -12,6 +12,7 @@ class Channel extends MV_Controller
         {
             foreach ($channels_array as $channel)
             {
+                var_dump($channel);
                 $channels_list[] = $this->encrypt->decode($channel['name']);
             }
         }
