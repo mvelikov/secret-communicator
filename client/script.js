@@ -221,15 +221,16 @@ $(document).ready(function() {
         name: 'userfile',
         onComplete : function(file, data){
             console.log('123', file, data);
+            $("#userfile").prop('disabled', false);
         },
         onSubmit : function (data, file) {
             console.log('123', data, file);
-            $("#userfile").prop('disabled', false);
+            $("#userfile").prop('disabled', true);
         }
     });
-    $('#userfile').live('change', function(e){
-        $(this).prop('disabled', true);
-        console.log("click");
-    });
+//    $('#userfile').live('change', function(e){
+//        $(this).prop('disabled', true);
+//        console.log("click");
+//    });
 });
 //jQuery.handleError = function (a,b,c) {console.log(a,b,c); return true;}
