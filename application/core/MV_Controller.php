@@ -57,4 +57,23 @@ class MV_Controller extends CI_Controller {
         HTTPStatus(401);
         $this->load->view('headers/index', array('code' => 401, 'message' => 'Invalid user'));
     }
+    
+    public function insert_message($data)
+    {
+        if ( ! empty($data['message']) && trim($data['message']) != ''
+                && ! empty($data['channel']) && trim($data['channel']) != '')
+        {
+            $this->load->library('mongo_db');
+            $message = $this->mongo_db
+                    ->insert('messages', array(
+                        'user' => $this->_user['user'],
+                        'message' => $this->encrypt->encode($data['message']),
+                        'channel' => new MongoID($data['channel']),//5004176041075da375000000
+                        //'channel' => $this->mongo_db->create_dbref('channels', $this->mongo_db->get)
+                        'time' => time(),
+                    ));
+            return $message;
+        }
+        return FALSE;
+    }
 }

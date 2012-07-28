@@ -220,8 +220,11 @@ $(document).ready(function() {
         action: 'http://velikov-chat.phpfogapp.com/file/index',
         name: 'userfile',
         responseType: 'json',
+        data: {
+            'channel' : userObj.channel
+        },
         onComplete : function(file, data){
-            console.log(data, typeof data);
+            console.log(data);
             //$("#userfile").prop('disabled', false);
             this.enable();
         },

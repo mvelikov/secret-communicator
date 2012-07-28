@@ -14,7 +14,7 @@ class File extends MV_Controller
 
 		$this->load->library('upload', $config);
 
-		if ($this->upload->do_upload('userfile'))
+		if ($this->upload->do_upload('userfile') && $this->input->post('channel'))
 		{
 			$this->load->library('s3');
 
@@ -27,6 +27,11 @@ class File extends MV_Controller
 
 			//echo '<pre>', var_dump(MAIN_BUCKET_URL . $name), '</pre>';
 			if ($res) {
+                $message = '<a href="' . MAIN_BUCKET_URL . $name . '" target="_blank">' . $data['orig_name'] . '</a>';
+                $this->insert_message(array(
+                    'message' => $message,
+                    'channel' => $this->input->post('channel'),
+                ));
 				HTTPStatus(200);
 				$this->load->view('file/success', array('file' => $name));
 			} else {
@@ -43,33 +48,33 @@ class File extends MV_Controller
 		@unlink($_FILES['userfile']);
 	}
 
-	public function alt()
-	{
-		echo '<pre>', var_dump($_FILES), '</pre>';
-		$error = '';
-		if ( ! empty($_FILES['userfile']['tmp_name']) && file_exists($_FILES['userfile']['tmp_name'])
-			&& ! empty($_FILES['userfile']['name']) && $_FILES['userfile']['name'] != '')
-		{
-			$this->load->library('s3');
-
-			$file = $this->s3->inputFile($_FILES['userfile']['tmp_name']);
-			$ext = explode('.', $_FILES['userfile']['name']);
-			$name = $this->encrypt->sha1($_FILES['userfile']['name'] . mt_rand()) . time() . '.' . end($ext);
-			$res = $this->s3->putObject($file, MAIN_BUCKET, $name);
-
-			if ($res) {
-				$this->load->view('file/success', array('file' => $name));
-			} else {
-				$error = 'File not uploaded';
-			}
-
-		} else {
-			$error = 'File not submitted';
-		}
-		if ($error != '') {
-			$this->load->view('file/error', array('error' => $error));
-		}
-		@unlink($_FILES['userfile']);
-	}
+//	public function alt()
+//	{
+//		echo '<pre>', var_dump($_FILES), '</pre>';
+//		$error = '';
+//		if ( ! empty($_FILES['userfile']['tmp_name']) && file_exists($_FILES['userfile']['tmp_name'])
+//			&& ! empty($_FILES['userfile']['name']) && $_FILES['userfile']['name'] != '')
+//		{
+//			$this->load->library('s3');
+//
+//			$file = $this->s3->inputFile($_FILES['userfile']['tmp_name']);
+//			$ext = explode('.', $_FILES['userfile']['name']);
+//			$name = $this->encrypt->sha1($_FILES['userfile']['name'] . mt_rand()) . time() . '.' . end($ext);
+//			$res = $this->s3->putObject($file, MAIN_BUCKET, $name);
+//
+//			if ($res) {
+//				$this->load->view('file/success', array('file' => $name));
+//			} else {
+//				$error = 'File not uploaded';
+//			}
+//
+//		} else {
+//			$error = 'File not submitted';
+//		}
+//		if ($error != '') {
+//			$this->load->view('file/error', array('error' => $error));
+//		}
+//		@unlink($_FILES['userfile']);
+//	}
 
 }

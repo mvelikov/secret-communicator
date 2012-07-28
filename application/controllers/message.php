@@ -10,17 +10,12 @@ class Message extends MV_Controller
         if (($message && $message != '')
                 && ($channel && $channel != ''))
         {
-            $this->load->library('mongo_db');
-            $message = $this->mongo_db
-                    ->insert('messages', array(
-                        'user' => $this->_user['user'],
-                        'message' => $this->encrypt->encode($message),
-                        'channel' => new MongoID($channel),//5004176041075da375000000
-                        //'channel' => $this->mongo_db->create_dbref('channels', $this->mongo_db->get)
-                        'time' => time(),
-                    ));
+            $message = $this->insert_message(array(
+                'message' => $message,
+                'channel' => $channel,
+            ));
 
-            if ( ! empty($message->{'$id'}))
+            if (is_object($message) && ! empty($message->{'$id'}))
             {
                 HTTPStatus(200);
                 $this->load->view('message/index', array(
