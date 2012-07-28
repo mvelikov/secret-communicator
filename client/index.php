@@ -41,7 +41,7 @@ header("Cache-Control: no-cache");?><!DOCTYPE html>
                                 </div>
                                 <div class="row">
                                     <label class="label" for="login-submit">&nbsp;</label>
-                                    <input name="login_submit" class="field" id="login-submit" type="button" value="Submit" />
+                                    <input name="login_submit" class="field" id="login-submit" type="submit" value="Submit" />
                                 </div>
                             </form>
                         </div>
