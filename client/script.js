@@ -22,11 +22,13 @@ $(document).ready(function() {
                     'pass' : pass
                 },
                 success : function (data) {
-                    console.log(data);
+                    loadChannelsList();
                     userObj = {
                         'user' : user,
                         'pass' : pass
                     };
+                    $("#login-form").css({display: 'none'});
+                    $("#channels-list-page").css({display: 'block'});
                 },
                 error : function (error, type) {
                     console.log(error, type);
@@ -135,6 +137,18 @@ $(document).ready(function() {
             }
         })
     });
+    function loadChannelsList() {
+        $.ajax({
+            url : base_href + 'channel/index',
+            type : 'post',
+            success : function (data) {
+                console.log(data);
+            },
+            error : function (a, b) {
+                console.log(a,b);
+            }
+        })
+    }
     setTimeout(subscribe, 2000);
 
     function subscribe (){

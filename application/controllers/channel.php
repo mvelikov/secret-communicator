@@ -7,7 +7,15 @@ class Channel extends MV_Controller
         $this->load->library('mongo_db');
         $channels_array = $this->mongo_db
                 ->get('channels');
-        $this->load->view('channel/index', array('channels' => $channels_array));
+        $channels_list = array();
+        if (is_array($channels_array))
+        {
+            foreach ($channels_array as $channel)
+            {
+                $channels_list[] = $this->encrypt->decode($channel['name']);
+            }
+        }
+        $this->load->view('channel/index', array('channels' => $channels_list));
     }
     /*public function add()
     {
@@ -82,4 +90,18 @@ class Channel extends MV_Controller
             $this->load->view('headers/index', array('code' => 400, 'message' => 'missing chanel name'));
         }
     }
+//    public function get_all()
+//    {
+//        $this->load->library('mongo_db');
+//        $channels_array = $this->mongo_db
+//                ->get_where(array());
+//        $channels_list = array();
+//        if (is_array($channels_array))
+//        {
+//            foreach ($channels_array as $channel)
+//            {
+//                $channels_list = $this->en
+//            }
+//        }
+//    }
 }

@@ -27,7 +27,7 @@ header("Cache-Control: no-cache");?><!DOCTYPE html>
                 </div>
             </header>
             <section>
-                <div id="login-page" class="page invisible">
+                <div id="login-page" class="page">
                     <div class="wrapper">
                         <div class="form-wrapper">
                             <form name="login_form" id="login-form" method="post" action="#">
@@ -49,11 +49,11 @@ header("Cache-Control: no-cache");?><!DOCTYPE html>
                 </div>
                 <div id="channels-list-page" class="page invisible">
                     <div class="wrapper">
-                        <ul id="chennels-list" class="list">
+                        <ul id="channels-list" class="list">
                         </ul>
                     </div>
                 </div>
-                <div id="chat-room-page" class="page ">
+                <div id="chat-room-page" class="page invisible">
                     <div class="wrapper">
                         <div class="form-wrapper">
                             <form action="#" name="message_form" id="message-form" method="post">
