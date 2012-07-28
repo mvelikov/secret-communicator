@@ -55,14 +55,6 @@ header("Cache-Control: no-cache");?><!DOCTYPE html>
                 </div>
                 <div id="chat-room-page" class="page ">
                     <div class="wrapper">
-                        <div id="message-box">
-                            <div class="message">
-                                <span class="author">mvelikov</span> said: <br />
-                                test<br />
-                                Fri, 13 Jul 2012 21:20:42 GMT<br />
-                            </div>
-                            <a id="load-last-messages" href="#" title="Load last 10 messages">Load last 10 messages</a>
-                        </div>
                         <div class="form-wrapper">
                             <form action="#" name="message_form" id="message-form" method="post">
                                 <div class="row">
@@ -74,12 +66,19 @@ header("Cache-Control: no-cache");?><!DOCTYPE html>
                                     <input type="button" id="send" name="send" value="Send" class="field" />
                                 </div>
                             </form>
-                            <div id="userfile" class="field"></div>
-<!--                            <form action="#" name="upload_file" id="upload-file" method="post" enctype="multipart/form-data">
-                                <input id="userfile" type="file" name="userfile" class="field">
-                                <input type="submit" id="upload-btn" name="upload-btn" value="Upload" class="field" />
-                            </form>-->
+                            <form action="#" name="upload_file" id="upload-file" method="post" enctype="multipart/form-data">
+                                <input id="userfile" type="file" name="userfile" class="field" />
+                            </form>
                         </div>
+                        <div id="message-box">
+                            <div class="message">
+                                <span class="author">mvelikov</span> said: <br />
+                                test<br />
+                                Fri, 13 Jul 2012 21:20:42 GMT<br />
+                            </div>
+                            <a id="load-last-messages" href="#" title="Load last 10 messages">Load last 10 messages</a>
+                        </div>
+                        
                     </div>
                 </div>
             </section>
