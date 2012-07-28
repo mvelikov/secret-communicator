@@ -223,7 +223,7 @@ $(document).ready(function() {
             console.log('123', file, data);
         },
         onSubmit : function (data) {
-            console.log('123', file, data);
+            console.log('123', data);
         }
     });
 });
