@@ -41,7 +41,7 @@ $(document).ready(function() {
         var text = escape($("#message").val());
         $("#message").val('');
         if (text != '') {
-            if (text.match(/https?:\/\/(www\.)?([a-zA-Z0-9_%\-]*)\b\.[a-z]{2,4}(\.[a-z]{2})?(.*)/gi)) {
+            if (text.match(/https?:\/\/(www\.)?([a-zA-Z0-9_%\-]*)\b\.[a-z]{2,4}(\.[a-z]{2})?(.*)?/gi)) {
                 title = prompt('Enter title for the link', '');
                 link = prompt('Enter name for the link', '');
                 if (title !== '' && link !== '') {
