@@ -203,6 +203,7 @@ $(document).ready(function() {
         onComplete : function(file, data){
             console.log(data);
             //$("#userfile").prop('disabled', false);
+            $("#send").prop('disabled', false);
             if (typeof data === 'object' && data.message) {
                 PUBNUB.publish({
                     channel : channel,
@@ -213,6 +214,7 @@ $(document).ready(function() {
         },
         onSubmit : function (file, extension) {
             this.disable();
+            $("#send").prop('disabled', true);
         }
     });
 //    $('#userfile').live('change', function(e){
