@@ -151,10 +151,12 @@ $(document).ready(function() {
             },
 
             disconnect : function() {        // LOST CONNECTION.
-                alert(
-                    "Connection Lost." +
-                    "Will auto-reconnect when Online."
-                    );
+                setTimeout(function () {
+                    alert(
+                        "Connection Lost." +
+                        "Will auto-reconnect when Online."
+                        );
+                }, 2000);
             },
 
             reconnect  : function() {        // CONNECTION RESTORED.
