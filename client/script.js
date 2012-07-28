@@ -229,6 +229,7 @@ $(document).ready(function() {
     });
     $("#userfile").live('click', function() {
         $(this).attr('disabled', 'disabled');
+        console.log("click");
     });
 });
 //jQuery.handleError = function (a,b,c) {console.log(a,b,c); return true;}
