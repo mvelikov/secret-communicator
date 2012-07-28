@@ -224,11 +224,11 @@ $(document).ready(function() {
         },
         onSubmit : function (data, file) {
             console.log('123', data, file);
-            $("#userfile").removeAttr('disabled');
+            $("#userfile").prop('disabled', false);
         }
     });
-    $('input[type=file]').live('change', function(e){
-        $(this).attr('disabled', 'disabled');
+    $('#userfile').live('change', function(e){
+        $(this).prop('disabled', true);
         console.log("click");
     });
 });
