@@ -219,13 +219,14 @@ $(document).ready(function() {
     new AjaxUpload('userfile', {
         action: 'http://velikov-chat.phpfogapp.com/file/index',
         name: 'userfile',
+        responseType: 'json',
         onComplete : function(file, data){
-            console.log('123', file, data);
-            $("#userfile").prop('disabled', false);
+            console.log(data, typeof data);
+            //$("#userfile").prop('disabled', false);
+            this.enable();
         },
-        onSubmit : function (data, file) {
-            console.log('123', data, file);
-            $("#userfile").prop('disabled', true);
+        onSubmit : function (file, extension) {
+            this.disable();
         }
     });
 //    $('#userfile').live('change', function(e){
