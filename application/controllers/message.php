@@ -58,7 +58,7 @@ class Message extends MV_Controller
                 ));
 
         $count = count($messages);
-        echo '<pre>', var_dump($messages), '</pre>';
+        //echo '<pre>', var_dump($messages), '</pre>';
     }
 
     public function get_many()
@@ -66,11 +66,14 @@ class Message extends MV_Controller
         $channel = $this->input->post('channel');
         $number = $this->input->post('number');
         $page = $this->input->post('page');
+        $skip = $this->input->post('skip');
         if ( ! $page OR $page <= 0)
         {
             $page = 1;
         }
-        $skip = ((int)$page - 1) * MESSAGES_PER_PAGE;
+        if ( ! $skip) {
+            $skip = ((int)$page - 1) * MESSAGES_PER_PAGE;
+        }
 
         if ($channel && $channel != ''
             && $number && $number > 0)
