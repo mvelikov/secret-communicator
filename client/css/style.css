@@ -73,3 +73,11 @@
 #load-last-messages {
     margin: 5px 20px;
 }
+#message-label {
+    width: 165px;
+    text-align: right;
+    float: left;
+}
+#message {
+    width: 500px;
+}

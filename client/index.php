@@ -58,7 +58,7 @@ header("Cache-Control: no-cache");?><!DOCTYPE html>
                         <div class="form-wrapper">
                             <form action="#" name="message_form" id="message-form" method="post">
                                 <div class="row">
-                                    <label for="message" class="label">Message:</label>
+                                    <label id="message-label" for="message" class="label">Message:</label>
                                     <textarea name="message" id="message" cols="20" rows="4" class="field"></textarea>
                                 </div>
                                 <div class="row">
