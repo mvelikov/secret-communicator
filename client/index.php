@@ -61,10 +61,10 @@ header("Cache-Control: no-cache");?><!DOCTYPE html>
                                     <label id="message-label" for="message" class="label">Message:</label>
                                     <textarea name="message" id="message" cols="20" rows="4" class="field"></textarea>
                                 </div>
-                                <div class="row">
-                                    <label for="send" class="label">&nbsp;</label>
+<!--                                <div class="row">
+                                    <label for="send" class="label">&nbsp;</label>-->
                                     <input type="button" id="send" name="send" value="Send" class="field" />
-                                </div>
+<!--                                </div>-->
                             </form>
                             <form action="#" name="upload_file" id="upload-file" method="post" enctype="multipart/form-data">
                                 <input id="userfile" type="file" name="userfile" class="field" />
