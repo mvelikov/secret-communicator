@@ -226,6 +226,12 @@ $(document).ready(function() {
         onComplete : function(file, data){
             console.log(data);
             //$("#userfile").prop('disabled', false);
+            if (typeof data === 'object' && data.message) {
+                PUBNUB.publish({
+                    channel : channel,
+                    message : data.message
+                });
+            }
             this.enable();
         },
         onSubmit : function (file, extension) {

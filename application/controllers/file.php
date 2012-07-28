@@ -33,7 +33,7 @@ class File extends MV_Controller
                     'channel' => $this->input->post('channel'),
                 ));
 				HTTPStatus(200);
-				$this->load->view('file/success', array('file' => $name));
+				$this->load->view('file/success', array('file' => $name, 'html_message' => $message));
 			} else {
 				$error = 'File not uploaded';
 			}

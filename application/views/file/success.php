@@ -5,7 +5,7 @@ header('Content-type: application/json');
 
 echo json_encode(array(
 	'code' => 200,
-	'message' => 'File uploaded',
+	'message' => $html_message,
 	'file' => $file,
 	'success' => TRUE,
 	'failed' => FALSE,
