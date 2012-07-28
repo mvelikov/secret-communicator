@@ -38,22 +38,24 @@ $(document).ready(function() {
     $("body").append('<div pub-key="pub-0fe3be58-2601-4fba-b4b9-86af7844be5b" sub-key="sub-62ca94b0-b883-11e1-b535-e7b64b0eaf0b" ssl="on" origin="pubsub.pubnub.com" id="pubnub"></div><script src="http://cdn.pubnub.com/pubnub-3.1.min.js"></script>');
 
     $("#send").click(function () {
-        var text = escape($("#message").val());
+        var text = $("#message").val(), escaped_text = escape(text);
         $("#message").val('');
         if (text != '') {
             console.log(text, text.match(/https?:\/\/(www\.)?([a-zA-Z0-9_%\-]*)\b\.[a-z]{2,4}(\.[a-z]{2})?(.*)?/gi));
             if (text.match(/https?:\/\/(www\.)?([a-zA-Z0-9_%\-]*)\b\.[a-z]{2,4}(\.[a-z]{2})?(.*)?/gi)) {
-                title = prompt('Enter title for the link', '');
+                var title = prompt('Enter title for the link', ''),
                 link = prompt('Enter name for the link', '');
                 if (title !== '' && link !== '') {
                     text = '<a href="' + text + '" title="' + title + '" target="_blank">' + link + '</a>';
                 } else if (title === '') {
                     text = '<a href="' + text + '" target="_blank">' + link + '</a>';
                 } else if (link === '') {
-                    text = '<a href="' + text + '" target="_blank">' + text + '</a>';
+                    text = '<a href="' + text + '" target="_blank">' + escaped_text + '</a>';
                 } else {
                     return;
                 }
+            } else {
+                text = escaped_text;
             }
             $.ajax({
                 url : base_href + 'message/insert',
