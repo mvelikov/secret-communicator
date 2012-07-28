@@ -67,6 +67,7 @@ header("Cache-Control: no-cache");?><!DOCTYPE html>
                                     
 <!--                                </div>-->
                             </form>
+                            <p>Use Ctrl + Enter to send the message!</p>
                             <div class="row">
                                 <form action="#" name="upload_file" id="upload-file" method="post" enctype="multipart/form-data">
                                     <input id="userfile" type="file" name="userfile" class="field" />
