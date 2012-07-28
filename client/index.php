@@ -69,6 +69,7 @@ header("Cache-Control: no-cache");?><!DOCTYPE html>
                             </form>
                             <div class="row">
                                 <form action="#" name="upload_file" id="upload-file" method="post" enctype="multipart/form-data">
+                                    <label for="userfile" class="label">&nbsp;</label>
                                     <input id="userfile" type="file" name="userfile" class="field" />
                                 </form>
                             </div>
