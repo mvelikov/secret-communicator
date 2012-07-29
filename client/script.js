@@ -12,7 +12,7 @@ $(document).ready(function() {
         e.preventDefault();
         var user = $("#user").val(),
         pass = $("#pass").val();
-
+        $("#overlay").show();
         if (user != '' && pass != '') {
             $.ajax({
                 url : base_href + 'user/index',
@@ -29,6 +29,7 @@ $(document).ready(function() {
                     };
                     $("#login-form").css({display: 'none'});
                     $("#channels-list-page").css({display: 'block'});
+                    $("#overlay").hide();
                 },
                 error : function (error, type) {
                     console.log(error, type);
