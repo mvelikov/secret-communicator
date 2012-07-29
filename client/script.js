@@ -29,7 +29,6 @@ $(document).ready(function() {
                     };
                     $("#login-form").css({display: 'none'});
                     $("#channels-list-page").css({display: 'block'});
-                    $("#overlay").hide();
                 },
                 error : function (error, type) {
                     console.log(error, type);
@@ -187,6 +186,7 @@ $(document).ready(function() {
                     }
                 }
                 $("#channels-list").html(html);
+                $("#overlay").hide();
             },
             error : function (a, b) {
                 console.log(a,b);
