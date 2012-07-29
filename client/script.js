@@ -137,6 +137,12 @@ $(document).ready(function() {
             }
         })
     });
+    $(".channels").live('click', function(e) {
+        e.preventDefault();
+        userObj.channel = $(this).attr('data-channel-id');
+        $("#channels-list-page").css({display: 'none'});
+        $("#chat-room-page").css({display: 'block'});
+    });
     function loadChannelsList() {
         $.ajax({
             url : base_href + 'channel/index',
@@ -146,7 +152,7 @@ $(document).ready(function() {
                 var html = '';
                 if (typeof data === 'object') {
                     for (var i in data) {
-                        html += '<li><a href="#" class="channel" data-channel-id="' + data[i]._id + '" title="' + data[i].name + '">' + data[i].name + '</a></li>'
+                        html += '<li><a href="#" class="channels" data-channel-id="' + data[i]._id + '" title="' + data[i].name + '">' + data[i].name + '</a></li>'
                     }
                 }
                 $("#channels-list").html(html);
