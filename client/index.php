@@ -1,5 +1,4 @@
-<?php
-header("Cache-Control: no-cache");?><!DOCTYPE html>
+<?php header("Cache-Control: no-cache"); ?><!DOCTYPE html>
 <html>
     <head>
         <title></title>
@@ -50,7 +49,7 @@ header("Cache-Control: no-cache");?><!DOCTYPE html>
                 <div id="channels-list-page" class="page invisible">
                     <div class="wrapper">
                         <h3>Channels List</h3>
-                        <ul id="channels-list" class="list">
+                        <ul id="channels-list" class="list box">
                         </ul>
                         <form action="#" id="channel-form" method="post" name="channel_form">
                             <div class="row">
@@ -71,10 +70,10 @@ header("Cache-Control: no-cache");?><!DOCTYPE html>
                                     <textarea name="message" id="message" cols="20" rows="4" class="field"></textarea>
                                     <input type="button" id="send" name="send" value="Send" class="field" />
                                 </div>
-<!--                                <div class="row">
-                                    <label for="send" class="label">&nbsp;</label>-->
-                                    
-<!--                                </div>-->
+                                <!--                                <div class="row">
+                                                                    <label for="send" class="label">&nbsp;</label>-->
+
+                                <!--                                </div>-->
                             </form>
                             <p class="tips">Use Ctrl + Enter to send the message!</p>
                             <div class="row">
@@ -83,10 +82,10 @@ header("Cache-Control: no-cache");?><!DOCTYPE html>
                                 </form>
                             </div>
                         </div>
-                        <div id="message-box">
+                        <div id="message-box" class="box">
                             <a id="load-last-messages" href="#" title="Load last 10 messages">Load last 10 messages</a>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div id="overlay"><img id="loader" src="images/loading.gif" alt="Loading..." /></div>

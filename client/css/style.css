@@ -48,13 +48,14 @@
     margin: 0 0 0 20px;
     float: left;
 }
-
-#message-box {
-    border: 1px dotted #E2E2E2;
-    box-shadow: 5px 5px 10px #888;
+.box {
     width: 640px;
     height: 480px;
     margin: 20px auto;
+}
+#message-box {
+    border: 1px dotted #E2E2E2;
+    box-shadow: 5px 5px 10px #888;
     overflow-x: hidden;
     overflow-y: auto;
 
