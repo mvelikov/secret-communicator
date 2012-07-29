@@ -153,7 +153,7 @@ $(document).ready(function() {
                     console.log(data);
                     var html = '';
                     if (typeof data === 'object') {
-                        html = '<li><a href="#" class="channels" data-channel-id="' + data._id + '" title="' + escaped_channel + '">' + escaped_channel + '</a></li>'
+                        html = '<li><a href="#" class="channels" data-channel-id="' + data.$id + '" title="' + escaped_channel + '">' + escaped_channel + '</a></li>'
                     }
                     $("#channels-list").append(html);
                 },
