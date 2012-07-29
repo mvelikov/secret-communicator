@@ -106,3 +106,8 @@
     z-index: 99999;
     display: none;
 }
+#loader {
+    position: fixed;
+    left: 45%;
+    top: 50%;
+}

@@ -223,7 +223,7 @@ $(document).ready(function() {
             },
 
             connect    : function() {        // CONNECTION ESTABLISHED.
-
+                $("#overlay").hide();
             //					PUBNUB.publish({             // SEND A MESSAGE.
             //						channel : "hello_homework",
             //						message : "Hi Homework."

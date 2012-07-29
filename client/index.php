@@ -89,7 +89,7 @@ header("Cache-Control: no-cache");?><!DOCTYPE html>
                         
                     </div>
                 </div>
-                <div id="overlay"><img src="images/loading.gif" alt="Loading..." /></div>
+                <div id="overlay"><img id="loader" src="images/loading.gif" alt="Loading..." /></div>
             </section>
             <footer id="footer">
                 <h3>Developed by Mihail Velikov</h3>
