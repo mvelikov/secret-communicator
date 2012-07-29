@@ -139,6 +139,29 @@ $(document).ready(function() {
     });
     $("#submit-channel").live('click', function (e) {
         e.preventDefault();
+        var channel = $("#channel-name").val(),
+        escaped_channel = escape(channel);
+        if (channel != '' && escaped_channel != '') {
+            $.ajax({
+                url : base_href + 'channel/insert',
+                type: 'post',
+                data : {
+                    'pass': userObj.pass,
+                    'channel' : escaped_channel
+                },
+                success : function (data) {
+                    console.log(data);
+                    var html = '';
+                    if (typeof data === 'object') {
+                        html = '<li><a href="#" class="channels" data-channel-id="' + data._id + '" title="' + escaped_channel + '">' + escaped_channel + '</a></li>'
+                    }
+                    $("#channels-list").append(html);
+                },
+                error : function (a,b) {
+                    console.log(a,b);
+                }
+            });
+        }
     });
     $(".channels").live('click', function(e) {
         e.preventDefault();
@@ -150,8 +173,10 @@ $(document).ready(function() {
         $.ajax({
             url : base_href + 'channel/index',
             type : 'post',
+            data : {
+                'pass': userObj.pass
+            },
             success : function (data) {
-                console.log(data);
                 var html = '';
                 if (typeof data === 'object') {
                     for (var i in data) {
