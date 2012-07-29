@@ -49,8 +49,17 @@ header("Cache-Control: no-cache");?><!DOCTYPE html>
                 </div>
                 <div id="channels-list-page" class="page invisible">
                     <div class="wrapper">
+                        <h3>Channels List</h3>
                         <ul id="channels-list" class="list">
                         </ul>
+                        <form action="#" id="channel-form" method="post" name="channel_form">
+                            <div class="row">
+                                <h4>Insert New Channel</h4>
+                                <label for="channel-name">Name:</label>
+                                <input type="text" name="channel_name" id="channel-name" />
+                                <input type="submit" value="Submit" id="submit-channel" name="submit_channel" />
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div id="chat-room-page" class="page invisible">
