@@ -93,3 +93,16 @@
 .tips {
     margin: 0 0 0 190px;
 }
+#overlay {
+    width: 101%;
+    height: 101%;
+    min-width: 1024px;
+    min-height: 1280px;
+    background-color: black;
+    opacity: 0.3;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 99999;
+    display: none;
+}

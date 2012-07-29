@@ -82,7 +82,7 @@ $(document).ready(function() {
                     if (typeof data !== 'undefined'
                         && data.success === true) {
                         PUBNUB.publish({
-                            channel : channel,
+                            channel : userObj.channel,
                             message : text
                         });
                     } else {
@@ -166,6 +166,7 @@ $(document).ready(function() {
     $(".channels").live('click', function(e) {
         e.preventDefault();
         userObj.channel = $(this).attr('data-channel-id');
+        subscribe();
         $("#channels-list-page").css({display: 'none'});
         $("#chat-room-page").css({display: 'block'});
     });
@@ -190,13 +191,13 @@ $(document).ready(function() {
             }
         })
     }
-    setTimeout(subscribe, 2000);
+    //setTimeout(subscribe, 2000);
 
     function subscribe (){
 
         // LISTEN FOR MESSAGES
         PUBNUB.subscribe({
-            channel    : channel,      // CONNECT TO THIS CHANNEL.
+            channel    : userObj.channel,      // CONNECT TO THIS CHANNEL.
 
             restore    : false,              // STAY CONNECTED, EVEN WHEN BROWSER IS CLOSED
             // OR WHEN PAGE CHANGES.
@@ -264,7 +265,7 @@ $(document).ready(function() {
             $("#send").prop('disabled', false);
             if (typeof data === 'object' && data.message) {
                 PUBNUB.publish({
-                    channel : channel,
+                    channel : userObj.channel,
                     message : data.message
                 });
             }
