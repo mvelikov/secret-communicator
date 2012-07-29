@@ -165,6 +165,7 @@ $(document).ready(function() {
     });
     $(".channels").live('click', function(e) {
         e.preventDefault();
+        $("#overlay").show();
         userObj.channel = $(this).attr('data-channel-id');
         subscribe();
         $("#channels-list-page").css({display: 'none'});
