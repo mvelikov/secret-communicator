@@ -137,6 +137,9 @@ $(document).ready(function() {
             }
         })
     });
+    $("#submit-channel").live('click', function (e) {
+        e.preventDefault();
+    });
     $(".channels").live('click', function(e) {
         e.preventDefault();
         userObj.channel = $(this).attr('data-channel-id');
