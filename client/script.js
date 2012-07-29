@@ -254,25 +254,25 @@ $(document).ready(function() {
     };
 
     new AjaxUpload('userfile', {
-        action: 'http://velikov-chat.phpfogapp.com/file/index',
+        action: base_href + 'file/index',
         name: 'userfile',
         responseType: 'json',
         data: {
             'channel' : userObj.channel
         },
         onComplete : function(file, data){
-            console.log(data);
-            //$("#userfile").prop('disabled', false);
-            $("#send").prop('disabled', false);
             if (typeof data === 'object' && data.message) {
                 PUBNUB.publish({
                     channel : userObj.channel,
                     message : data.message
                 });
             }
+            $("#send").prop('disabled', false);
             this.enable();
+            $("#overlay").hide();
         },
         onSubmit : function (file, extension) {
+            $("#overlay").show();
             this.disable();
             $("#send").prop('disabled', true);
         }
