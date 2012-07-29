@@ -143,6 +143,12 @@ $(document).ready(function() {
             type : 'post',
             success : function (data) {
                 console.log(data);
+                var html = '';
+                if (typeof data === 'object') {
+                    for (var i in data) {
+                        html += '<li data-channel-id="' + data[i]._id + '">' + data[i].name + '</li>'
+                    }
+                }
             },
             error : function (a, b) {
                 console.log(a,b);
