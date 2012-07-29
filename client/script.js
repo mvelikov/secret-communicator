@@ -146,9 +146,10 @@ $(document).ready(function() {
                 var html = '';
                 if (typeof data === 'object') {
                     for (var i in data) {
-                        html += '<li data-channel-id="' + data[i]._id + '">' + data[i].name + '</li>'
+                        html += '<li><a href="#" class="channel" data-channel-id="' + data[i]._id + '" title="' + data[i].name + '">' + data[i].name + '</a></li>'
                     }
                 }
+                $("#channels-list").html(html);
             },
             error : function (a, b) {
                 console.log(a,b);
