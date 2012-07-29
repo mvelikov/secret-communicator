@@ -50,7 +50,7 @@
 }
 .box {
     width: 640px;
-    height: 480px;
+
     margin: 20px auto;
 }
 #message-box {
@@ -58,7 +58,7 @@
     box-shadow: 5px 5px 10px #888;
     overflow-x: hidden;
     overflow-y: auto;
-
+    height: 480px;
 }
 .message {
     width: 600px;
