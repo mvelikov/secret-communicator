@@ -9,12 +9,12 @@ class User extends CI_Controller {
         if ($user && $pass)
         {
             $this->load->library('mongo_db');
-            $user = $this->mongo_db
+            $users = $this->mongo_db
                 ->get_where('users', array(
                     'pass' => $this->encrypt->sha1($pass) . $this->encrypt->sha1($user),
                 ));
 
-            if (is_array($user) && count($user) == 1)
+            if (is_array($users) && count($users) == 1)
             {
                 $this->_user = array_pop($users);
                 HTTPStatus(200);
