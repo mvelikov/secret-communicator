@@ -74,10 +74,6 @@
                                     <textarea name="message" id="message" cols="20" rows="4" class="field"></textarea>
                                     <input type="button" id="send" name="send" value="Send" class="field" />
                                 </div>
-                                <!--                                <div class="row">
-                                                                    <label for="send" class="label">&nbsp;</label>-->
-
-                                <!--                                </div>-->
                             </form>
                             <p class="tips">Use Ctrl + Enter to send the message!</p>
                             <div class="row">

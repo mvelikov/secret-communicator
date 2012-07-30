@@ -179,7 +179,7 @@ $(document).ready(function() {
             'channel' : userObj.channel
         });
         subscribe();
-        $("#message-box").html('');
+        $("#message-box").html('<a id="load-last-messages" href="#" title="Load last 10 messages">Load last 10 messages</a>');
         $("#channels-list-page").css({display: 'none'});
         $("#chat-room-page").css({display: 'block'});
     });
