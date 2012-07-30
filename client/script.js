@@ -6,6 +6,7 @@ $(document).ready(function() {
 
     $("#back-to-channels").live('click', function (e) {
         e.preventDefault();
+        PUBNUB.unsubscribe({ channel : userObj.channel });
         $("#chat-room-page").css({display: 'none'});
         $("#channels-list-page").css({display: 'block'});
     });
