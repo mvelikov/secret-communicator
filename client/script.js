@@ -1,10 +1,6 @@
 $(document).ready(function() {
     var channel = '5004174b41075da575000000',
-    userObj = {
-        'user' : 'mvelikov',
-        'pass' : '123456',
-        'channel' : channel
-    },
+    userObj = {},
     page = 1, count = 0, per_page = 10, skip = 0,
     base_href = 'http://velikov-chat.phpfogapp.com/';
 
@@ -25,12 +21,12 @@ $(document).ready(function() {
                     if (typeof data !== 'undefined'
                         && data.success === true
                         && data.failed === false) {
-
-                        loadChannelsList();
                         userObj = {
                             'user' : user,
                             'pass' : data.pass
                         };
+                        loadChannelsList();
+                        
                     } else {
                         $("#error-message").html(data.message).show();
                         $("#overlay").hide();
@@ -269,7 +265,8 @@ $(document).ready(function() {
         name: 'userfile',
         responseType: 'json',
         data: {
-            'channel' : userObj.channel
+            'channel' : userObj.channel,
+            'pass' : userObj.pass
         },
         onComplete : function(file, data){
             if (typeof data === 'object' && data.message) {
