@@ -178,6 +178,7 @@ $(document).ready(function() {
             'channel' : userObj.channel
         });
         subscribe();
+        $("#message-box").html('');
         $("#channels-list-page").css({display: 'none'});
         $("#chat-room-page").css({display: 'block'});
     });
