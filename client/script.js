@@ -264,7 +264,7 @@ $(document).ready(function() {
         action: base_href + 'file/index',
         name: 'userfile',
         responseType: 'json',
-        data: {
+        params: {
             'channel' : userObj.channel,
             'pass' : userObj.pass
         },
