@@ -25,7 +25,7 @@ $(document).ready(function() {
                             'user' : user,
                             'pass' : data.pass
                         };
-                        uploader.setParams({
+                        uploader.setData({
                             'user' : userObj.user,
                             'pass' : userObj.pass
                         });
@@ -268,7 +268,7 @@ $(document).ready(function() {
         action: base_href + 'file/index',
         name: 'userfile',
         responseType: 'json',
-        params: {},
+        data: {},
         onComplete : function(file, data){
             if (typeof data === 'object' && data.message) {
                 PUBNUB.publish({
