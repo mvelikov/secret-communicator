@@ -1,6 +1,6 @@
-var userObj = {};
 $(document).ready(function() {
     var channel = '5004174b41075da575000000',
+    userObj = {},
     page = 1, count = 0, per_page = 10, skip = 0,
     base_href = 'http://velikov-chat.phpfogapp.com/';
 
@@ -25,8 +25,12 @@ $(document).ready(function() {
                             'user' : user,
                             'pass' : data.pass
                         };
+                        uploader.setParams({
+                            'user' : userObj.user,
+                            'pass' : userObj.pass
+                        });
                         loadChannelsList();
-                        
+
                     } else {
                         $("#error-message").html(data.message).show();
                         $("#overlay").hide();
@@ -260,14 +264,11 @@ $(document).ready(function() {
         });
     };
 
-    new AjaxUpload('userfile', {
+    var uploader = new AjaxUpload('userfile', {
         action: base_href + 'file/index',
         name: 'userfile',
         responseType: 'json',
-        params: {
-            'channel' : userObj.channel,
-            'pass' : userObj.pass
-        },
+        params: {},
         onComplete : function(file, data){
             if (typeof data === 'object' && data.message) {
                 PUBNUB.publish({
