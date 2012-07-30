@@ -8,6 +8,7 @@ $(document).ready(function() {
         e.preventDefault();
         PUBNUB.unsubscribe({ channel : userObj.channel });
         $("#chat-room-page").css({display: 'none'});
+        $("#channel-box").html('');
         $("#channels-list-page").css({display: 'block'});
     });
     $("#login-submit").live('click', function (e) {
