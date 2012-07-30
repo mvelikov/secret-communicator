@@ -25,10 +25,7 @@ $(document).ready(function() {
                             'user' : user,
                             'pass' : data.pass
                         };
-                        uploader.setData({
-                            'user' : userObj.user,
-                            'pass' : userObj.pass
-                        });
+
                         loadChannelsList();
 
                     } else {
@@ -175,6 +172,10 @@ $(document).ready(function() {
         e.preventDefault();
         $("#overlay").show();
         userObj.channel = $(this).attr('data-channel-id');
+        uploader.setData({
+            'pass' : userObj.pass,
+            'channel' : userObj.channel
+        });
         subscribe();
         $("#channels-list-page").css({display: 'none'});
         $("#chat-room-page").css({display: 'block'});
