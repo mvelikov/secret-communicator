@@ -89,7 +89,9 @@
                         <div id="message-box" class="box">
                             <a id="load-last-messages" href="#" title="Load last 10 messages">Load last 10 messages</a>
                         </div>
-
+                        <div class="row">
+                            <a href="#" id="back-to-channels"><<-back to channels</a>
+                        </div>
                     </div>
                 </div>
                 <div id="overlay"><img id="loader" src="images/loading.gif" alt="Loading..." /></div>
