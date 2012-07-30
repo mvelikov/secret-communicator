@@ -8,4 +8,5 @@ echo json_encode(array(
     'message' => $message,
     'success' => $success,
     'failed' => $failed,
+    'pass' => $pass,
 ));

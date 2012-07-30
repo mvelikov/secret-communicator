@@ -24,6 +24,7 @@ class User extends CI_Controller {
                     'success' => TRUE,
                     'failed' => FALSE,
                     'message' => 'Login successfull',
+                    'pass' => $this->_user['pass'],
                 ));
             }
             else
@@ -34,6 +35,7 @@ class User extends CI_Controller {
                     'success' => FALSE,
                     'failed' => TRUE,
                     'message' => 'Login failed',
+                    'pass' => FALSE,
                 ));
             }
         }
