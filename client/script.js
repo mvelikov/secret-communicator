@@ -29,7 +29,7 @@ $(document).ready(function() {
                         loadChannelsList();
 
                     } else {
-                        $("#error-message").html(data.message).show().fadeOut(10000);
+                        $("#error-message").html(data.message).show().fadeOut(5000);
                         $("#overlay").hide();
                     }
                 },
@@ -39,7 +39,7 @@ $(document).ready(function() {
                 }
             });
         } else {
-            $("#error-message").html('Please, fill in user and password').show().fadeOut(10000);
+            $("#error-message").html('Please, fill in user and password').show().fadeOut(5000);
         }
     });
     $("body").append('<div pub-key="pub-0fe3be58-2601-4fba-b4b9-86af7844be5b" sub-key="sub-62ca94b0-b883-11e1-b535-e7b64b0eaf0b" ssl="on" origin="pubsub.pubnub.com" id="pubnub"></div><script src="http://cdn.pubnub.com/pubnub-3.1.min.js"></script>');
@@ -279,7 +279,7 @@ $(document).ready(function() {
                     message : data.message
                 });
             } else {
-                $("#error-message").html(data.message).show().fadeOut(10000);
+                $("#error-message").html(data.message).show().fadeOut(5000);
             }
             $("#send").prop('disabled', false);
             this.enable();
