@@ -94,9 +94,6 @@ $(document).ready(function() {
                     } else {
                         console.log(data);
                     }
-                    if (skip !== null) {
-                        skip++;
-                    }
                 },
                 error : function () {
                     alert('error sending single message');
@@ -217,6 +214,9 @@ $(document).ready(function() {
             // OR WHEN PAGE CHANGES.
 
             callback   : function(message) { // RECEIVED A MESSAGE.
+                if (skip !== null) {
+                    skip++;
+                }
                 var msg = '<div class="message">'; /*<span class="author">' + userObj.user + '</span> said: <br />';*/
                 msg += message;
                 msg += '<br />' + (new Date).toUTCString() + '<br /></div>';
