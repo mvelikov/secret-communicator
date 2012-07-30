@@ -40,15 +40,15 @@ $(document).ready(function() {
         if (e.ctrlKey && e.keyCode == 10) {
             e.preventDefault();
             $("#send").trigger('click');
-        } 
+        }
     });
     //        .focusin(function() {
     //           $(this) .key
     //        })
     //        .focusout(function () {
-    //            
+    //
     //        });
-    
+
     $("#send").live('click', function () {
         var text = $("#message").val(), escaped_text = escape(text);
         $("#message").val('');
