@@ -9,7 +9,8 @@ class MV_Controller extends CI_Controller {
         parent::__construct();
 
         $this->load->helper(array('mv_helper', 'url'));
-        $pass = $this->input->post('pass');
+        $pass = $this->input->get_post('pass');
+        echo '<pre>', var_dump($pass), '</pre>';
 /*echo '<pre>', var_dump(array(
                         'user' => $this->encrypt->encode('mvelikov'),
                         'pass' => $this->encrypt->encode($this->encrypt->sha1('123456')),
