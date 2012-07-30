@@ -42,6 +42,9 @@
                                     <label class="label" for="login-submit">&nbsp;</label>
                                     <input name="login_submit" class="field" id="login-submit" type="submit" value="Submit" />
                                 </div>
+                                <div class="row">
+                                    <div id="error-message"></div>
+                                </div>
                             </form>
                         </div>
                     </div>

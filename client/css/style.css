@@ -112,3 +112,7 @@
     left: 45%;
     top: 50%;
 }
+#error-message {
+    margin-left: 300px;
+    display: none;
+}

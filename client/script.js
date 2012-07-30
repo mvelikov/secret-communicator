@@ -12,8 +12,8 @@ $(document).ready(function() {
         e.preventDefault();
         var user = $("#user").val(),
         pass = $("#pass").val();
-        $("#overlay").show();
         if (user != '' && pass != '') {
+            $("#overlay").show();
             $.ajax({
                 url : base_href + 'user/index',
                 type: 'post',
@@ -22,17 +22,26 @@ $(document).ready(function() {
                     'pass' : pass
                 },
                 success : function (data) {
-                    loadChannelsList();
-                    userObj = {
-                        'user' : user,
-                        'pass' : pass
-                    };
+                    if (typeof data !== 'undefined'
+                        && data.success === true
+                        && data.failed === false) {
+
+                        loadChannelsList();
+                        userObj = {
+                            'user' : user,
+                            'pass' : pass
+                        };
+                    } else {
+                        $("#error-message").html(data.message).show();
+                    }
                 },
                 error : function (error, type) {
                     console.log(error, type);
                     userObj = {};
                 }
             });
+        } else {
+            $("#error-message").html('Please, fill in user and password').show();
         }
     });
     $("body").append('<div pub-key="pub-0fe3be58-2601-4fba-b4b9-86af7844be5b" sub-key="sub-62ca94b0-b883-11e1-b535-e7b64b0eaf0b" ssl="on" origin="pubsub.pubnub.com" id="pubnub"></div><script src="http://cdn.pubnub.com/pubnub-3.1.min.js"></script>');
