@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var channel = '5004174b41075da575000000',
+    var channel = '5004174b41075da5710000000',
     userObj = {},
     page = 1, count = 0, per_page = 10, skip = 0,
     base_href = 'http://velikov-chat.phpfogapp.com/';
@@ -29,7 +29,7 @@ $(document).ready(function() {
                         loadChannelsList();
 
                     } else {
-                        $("#error-message").html(data.message).show().fadeOut('5000');
+                        $("#error-message").html(data.message).show().fadeOut(10000);
                         $("#overlay").hide();
                     }
                 },
@@ -39,7 +39,7 @@ $(document).ready(function() {
                 }
             });
         } else {
-            $("#error-message").html('Please, fill in user and password').show().fadeOut('5000');
+            $("#error-message").html('Please, fill in user and password').show().fadeOut(10000);
         }
     });
     $("body").append('<div pub-key="pub-0fe3be58-2601-4fba-b4b9-86af7844be5b" sub-key="sub-62ca94b0-b883-11e1-b535-e7b64b0eaf0b" ssl="on" origin="pubsub.pubnub.com" id="pubnub"></div><script src="http://cdn.pubnub.com/pubnub-3.1.min.js"></script>');
@@ -279,7 +279,7 @@ $(document).ready(function() {
                     message : data.message
                 });
             } else {
-                $("#error-message").html(data.message).show().fadeOut('5000');
+                $("#error-message").html(data.message).show().fadeOut(10000);
             }
             $("#send").prop('disabled', false);
             this.enable();
@@ -297,7 +297,7 @@ $(document).ready(function() {
 //    });
 /*$('#userfile').fileupload({
     url: base_href + 'file/index',
-    maxFileSize: 5000000,
+    maxFileSize: 10000000,
     dataType: 'json',
     done: function (e, data) {
         console.log(e, data);
