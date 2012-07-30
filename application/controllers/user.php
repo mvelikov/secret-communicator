@@ -4,6 +4,7 @@ class User extends CI_Controller {
 
     public function index()
     {
+        $this->load->helper(array('mv_helper'));
         $user = $this->input->post('user');
         $pass = $this->input->post('pass');
         if ($user && $pass)
