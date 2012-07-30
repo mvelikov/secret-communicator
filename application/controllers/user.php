@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class User extends MV_Controller {
+class User extends CI_Controller {
 
     public function index()
     {
@@ -16,6 +16,7 @@ class User extends MV_Controller {
 
             if (is_array($user) && count($user) == 1)
             {
+                $this->_user = array_pop($users);
                 HTTPStatus(200);
                 $this->load->view('user/index', array(
                     'code' => 200,

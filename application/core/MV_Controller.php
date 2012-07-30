@@ -9,6 +9,8 @@ class MV_Controller extends CI_Controller {
         parent::__construct();
 
         $this->load->helper(array('mv_helper', 'url'));
+        $user = $this->input->post('user');
+        $pass = $this->input->post('pass');
 /*echo '<pre>', var_dump(array(
                         'user' => $this->encrypt->encode('mvelikov'),
                         'pass' => $this->encrypt->encode($this->encrypt->sha1('123456')),
@@ -17,12 +19,12 @@ class MV_Controller extends CI_Controller {
         {
             redirect($this->router->class . '/error_https');
         }
-        else*/if ($this->input->post('user') && $this->input->post('pass') || 1)
+        else*/if ($user && $pass)
         {
             $this->load->library('mongo_db');
             $users = $this->mongo_db
                     ->get_where('users', array(
-                        'pass' => $this->encrypt->sha1('123456') . $this->encrypt->sha1('mvelikov'),
+                        'pass' => $this->encrypt->sha1($pass) . $this->encrypt->sha1($user),
                     ));
                     /*->get_where('users', array(
                         'user' => $this->encrypt->encode($this->input->post('user')),
@@ -57,7 +59,7 @@ class MV_Controller extends CI_Controller {
         HTTPStatus(401);
         $this->load->view('headers/index', array('code' => 401, 'message' => 'Invalid user'));
     }
-    
+
     public function insert_message($data)
     {
         if ( ! empty($data['message']) && trim($data['message']) != ''
