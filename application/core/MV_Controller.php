@@ -9,7 +9,6 @@ class MV_Controller extends CI_Controller {
         parent::__construct();
 
         $this->load->helper(array('mv_helper', 'url'));
-        $user = $this->input->post('user');
         $pass = $this->input->post('pass');
 /*echo '<pre>', var_dump(array(
                         'user' => $this->encrypt->encode('mvelikov'),
@@ -19,12 +18,12 @@ class MV_Controller extends CI_Controller {
         {
             redirect($this->router->class . '/error_https');
         }
-        else*/if ($user && $pass)
+        else*/if ($pass)
         {
             $this->load->library('mongo_db');
             $users = $this->mongo_db
                     ->get_where('users', array(
-                        'pass' => $this->encrypt->sha1($pass) . $this->encrypt->sha1($user),
+                        'pass' => $pass,
                     ));
                     /*->get_where('users', array(
                         'user' => $this->encrypt->encode($this->input->post('user')),
