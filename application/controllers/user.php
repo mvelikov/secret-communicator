@@ -13,8 +13,8 @@ class User extends MV_Controller {
                 ->get_where('users', array(
                     'pass' => $this->encrypt->sha1($pass) . $this->encrypt->sha1($user),
                 ));
-echo '<pre>', var_dump($user), '</pre>';
-            if (is_object($user) && count($user) == 1)
+
+            if (is_array($user) && count($user) == 1)
             {
                 HTTPStatus(200);
                 $this->load->view('user/index', array(
