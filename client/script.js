@@ -25,7 +25,7 @@ $(document).ready(function() {
                             'user' : user,
                             'pass' : data.pass
                         };
-                        $("#user-box").html('Hello ' + user).show();
+                        $("#user-box").html('Hello, ' + user).show();
                         loadChannelsList();
 
                     } else {
