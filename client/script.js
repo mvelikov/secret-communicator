@@ -123,8 +123,6 @@ $(document).ready(function() {
                     && typeof data.list == 'object') {
                     for (var i in data.list) {
                         html += '<div class="message">';
-                        html += '<span class="author">';
-                        html += data.list[i].user + '</span> said: <br />';
                         html += data.list[i].message + '<br />';
                         html += (new Date(data.list[i].time * 1000)).toUTCString();
                         html += '</div>';
