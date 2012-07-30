@@ -10,7 +10,7 @@ class MV_Controller extends CI_Controller {
 
         $this->load->helper(array('mv_helper', 'url'));
         $pass = $this->input->get_post('pass');
-        ///echo '<pre>', var_dump($pass), '</pre>';
+        echo '<pre>', var_dump($pass), '</pre>';exit();
 /*echo '<pre>', var_dump(array(
                         'user' => $this->encrypt->encode('mvelikov'),
                         'pass' => $this->encrypt->encode($this->encrypt->sha1('123456')),
@@ -32,7 +32,7 @@ class MV_Controller extends CI_Controller {
                     ));*/
             if (!is_array($users) || count($users) == 0)
             {
-                redirect($this->router->class . '/error_auth');
+                redirect('error/error_auth');
             }
             else
             {
@@ -41,24 +41,11 @@ class MV_Controller extends CI_Controller {
         }
         else
         {
-            redirect($this->router->class . '/error_auth');
+            redirect('error/error_auth');
         }
     }
 
-    public function error_https()
-    {
-        HTTPStatus(501);
-        $this->load->view('headers/index', array(
-            'code' => 501,
-            'message' => 'Use HTTPS connection!',
-        ));
-    }
 
-    public function error_auth()
-    {
-        HTTPStatus(401);
-        $this->load->view('headers/index', array('code' => 401, 'message' => 'Invalid user'));
-    }
 
     public function insert_message($data)
     {

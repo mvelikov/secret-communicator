@@ -51,7 +51,7 @@ class Channel extends MV_Controller
                     }
                 }
             }
-            
+
             if (empty($channel))
             {
                 $channel = $this->mongo_db
@@ -59,7 +59,7 @@ class Channel extends MV_Controller
                             'name' => $this->encrypt->encode($post_channel)
                         ));
             }
-//            
+//
 //            elseif ($channels_count == 1)
 //            {
 //                $channel = array_pop($channels_array);
