@@ -26,6 +26,7 @@
                 </div>
             </header>
             <section>
+                <div class="row" id="user-box"></div>
                 <div class="row">
                     <div id="error-message"></div>
                 </div>
