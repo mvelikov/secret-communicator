@@ -26,6 +26,9 @@
                 </div>
             </header>
             <section>
+                <div class="row">
+                    <div id="error-message"></div>
+                </div>
                 <div id="login-page" class="page ">
                     <div class="wrapper">
                         <div class="form-wrapper">
@@ -41,9 +44,6 @@
                                 <div class="row">
                                     <label class="label" for="login-submit">&nbsp;</label>
                                     <input name="login_submit" class="field" id="login-submit" type="submit" value="Submit" />
-                                </div>
-                                <div class="row">
-                                    <div id="error-message"></div>
                                 </div>
                             </form>
                         </div>
