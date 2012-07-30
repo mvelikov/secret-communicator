@@ -1,6 +1,6 @@
+var userObj = {};
 $(document).ready(function() {
     var channel = '5004174b41075da575000000',
-    userObj = {},
     page = 1, count = 0, per_page = 10, skip = 0,
     base_href = 'http://velikov-chat.phpfogapp.com/';
 
