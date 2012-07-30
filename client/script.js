@@ -174,6 +174,7 @@ $(document).ready(function() {
         e.preventDefault();
         $("#overlay").show();
         userObj.channel = $(this).attr('data-channel-id');
+        $("#channel-box").html($(this).html());
         uploader.setData({
             'pass' : userObj.pass,
             'channel' : userObj.channel
