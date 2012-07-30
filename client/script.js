@@ -29,7 +29,7 @@ $(document).ready(function() {
                         loadChannelsList();
                         userObj = {
                             'user' : user,
-                            'pass' : pass
+                            'pass' : data.pass
                         };
                     } else {
                         $("#error-message").html(data.message).show();
