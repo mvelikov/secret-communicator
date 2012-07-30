@@ -27,7 +27,8 @@ class File extends MV_Controller
 
 			//echo '<pre>', var_dump(MAIN_BUCKET_URL . $name), '</pre>';
 			if ($res) {
-                $message = '<span class="author">' . $this->_user['user'] . '</span> said: <br /><a href="' . MAIN_BUCKET_URL . $name . '" target="_blank">' . $data['orig_name'] . '</a>';
+                $message = '<span class="author">' . $this->encrypt->decode($this->_user['user'])
+                . '</span> said: <br /><a href="' . MAIN_BUCKET_URL . $name . '" target="_blank">' . $data['orig_name'] . '</a>';
                 $this->insert_message(array(
                     'message' => $message,
                     'channel' => $this->input->post('channel'),
