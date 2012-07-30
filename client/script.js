@@ -33,6 +33,7 @@ $(document).ready(function() {
                         };
                     } else {
                         $("#error-message").html(data.message).show();
+                        $("#overlay").hide();
                     }
                 },
                 error : function (error, type) {
