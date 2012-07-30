@@ -22,8 +22,8 @@ class Load extends CI_Controller {
         $this->load->library('mongo_db');
         $id = $this->mongo_db
                 ->insert('users', array(
-                    'user' => $this->encrypt->encode('mvelikov'),
-                    'pass' => $this->encrypt->sha1('123456') . $this->encrypt->sha1('mvelikov'),
+                    'user' => $this->encrypt->encode('test'),
+                    'pass' => $this->encrypt->sha1('test') . $this->encrypt->sha1('test'),
                 ));
         echo $id;
     }
