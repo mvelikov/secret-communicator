@@ -98,7 +98,7 @@ $(document).ready(function() {
                             message : text
                         });
                     } else {
-                        console.log(data);
+                        $("#error-message").html(data.message).show().fadeOut(5000);
                     }
                 },
                 error : function () {
@@ -133,6 +133,8 @@ $(document).ready(function() {
                         html += (new Date(data.list[i].time * 1000)).toUTCString();
                         html += '</div>';
                     }
+                } else {
+                    $("#error-message").html(data.message).show().fadeOut(5000);
                 }
                 page++;
                 count = data.count || count;
@@ -159,8 +161,12 @@ $(document).ready(function() {
                 success : function (data) {
                     console.log(data);
                     var html = '';
-                    if (typeof data === 'object') {
+                    if (typeof data === 'object'
+                        && data.success === true
+                        && data.failed === false) {
                         html = '<li><a href="#" class="channels" data-channel-id="' + data.$id + '" title="' + escaped_channel + '">' + escaped_channel + '</a></li>'
+                    } else {
+                        $("#error-message").html(data.message).show().fadeOut(5000);
                     }
                     $("#channels-list").append(html);
                 },
