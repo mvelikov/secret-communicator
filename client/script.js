@@ -75,6 +75,7 @@ $(document).ready(function() {
             } else {
                 text = escaped_text;
             }
+            text = '<span class="author">' + userObj.user + '</span> said: <br />' + text;
             $.ajax({
                 url : base_href + 'message/insert',
                 type: 'post',
@@ -216,7 +217,7 @@ $(document).ready(function() {
             // OR WHEN PAGE CHANGES.
 
             callback   : function(message) { // RECEIVED A MESSAGE.
-                var msg = '<div class="message"><span class="author">' + userObj.user + '</span> said: <br />';
+                var msg = '<div class="message">'; /*<span class="author">' + userObj.user + '</span> said: <br />';*/
                 msg += message;
                 msg += '<br />' + (new Date).toUTCString() + '<br /></div>';
                 $('#message-box').prepend(msg);
