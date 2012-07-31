@@ -8,6 +8,7 @@ $(document).ready(function() {
         e.preventDefault();
         PUBNUB.unsubscribe({ channel : userObj.channel });
         $("#chat-room-page").css({display: 'none'});
+        $("#channel-box").html('');
         $("#channels-list-page").css({display: 'block'});
     });
     $("#login-submit").live('click', function (e) {
@@ -98,7 +99,7 @@ $(document).ready(function() {
                             message : text
                         });
                     } else {
-                        console.log(data);
+                        $("#error-message").html(data.message).show().fadeOut(5000);
                     }
                 },
                 error : function () {
@@ -133,6 +134,8 @@ $(document).ready(function() {
                         html += (new Date(data.list[i].time * 1000)).toUTCString();
                         html += '</div>';
                     }
+                } else {
+                    $("#error-message").html(data.message).show().fadeOut(5000);
                 }
                 page++;
                 count = data.count || count;
@@ -159,8 +162,12 @@ $(document).ready(function() {
                 success : function (data) {
                     console.log(data);
                     var html = '';
-                    if (typeof data === 'object') {
+                    if (typeof data === 'object'
+                        && data.success === true
+                        && data.failed === false) {
                         html = '<li><a href="#" class="channels" data-channel-id="' + data.$id + '" title="' + escaped_channel + '">' + escaped_channel + '</a></li>'
+                    } else {
+                        $("#error-message").html(data.message).show().fadeOut(5000);
                     }
                     $("#channels-list").append(html);
                 },
@@ -174,6 +181,7 @@ $(document).ready(function() {
         e.preventDefault();
         $("#overlay").show();
         userObj.channel = $(this).attr('data-channel-id');
+        $("#channel-box").html('Channel: ' + $(this).html());
         uploader.setData({
             'pass' : userObj.pass,
             'channel' : userObj.channel
