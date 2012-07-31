@@ -187,6 +187,7 @@ $(document).ready(function() {
             'pass' : userObj.pass,
             'channel' : userObj.channel
         });
+		$("#message").focus();
         subscribe();
         $("#message-box").html('<a id="load-last-messages" href="#" title="Load last 10 messages">Load last 10 messages</a>');
         $("#channels-list-page").css({display: 'none'});
