@@ -128,7 +128,10 @@ $(document).ready(function() {
                 var html = '';
                 if (typeof data !== 'undefined'
                     && data.success === true
-                    && typeof data.list == 'object') {
+                    && typeof data.list === 'object') {
+					if (data.count === 0) {
+						$("#error-message").html('There are no older messages').show().fadeOut(5000);
+					}
                     for (var i in data.list) {
                         html += '<div class="message">';
                         html += data.list[i].message + '<br />';
@@ -187,7 +190,7 @@ $(document).ready(function() {
             'pass' : userObj.pass,
             'channel' : userObj.channel
         });
-		$("#message").focus();
+        $("#message").focus();
         subscribe();
         $("#message-box").html('<a id="load-last-messages" href="#" title="Load last 10 messages">Load last 10 messages</a>');
         $("#channels-list-page").css({display: 'none'});
