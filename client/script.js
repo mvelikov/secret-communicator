@@ -179,7 +179,7 @@ $(document).ready(function() {
         }
     });
     $(".channels").live('click', function(e) {
-        e.preventDefault();
+        e.preventDefault(); 
         $("#overlay").show();
         userObj.channel = $(this).attr('data-channel-id');
         $("#channel-box").html('Channel: ' + $(this).html());
