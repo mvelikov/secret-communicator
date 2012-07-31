@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	$("#user").focus();
     var channel = '5004174b41075da5710000000',
     userObj = {},
     page = 1, count = 0, per_page = 10, skip = 0,
@@ -6,7 +7,7 @@ $(document).ready(function() {
 
     $("#back-to-channels").live('click', function (e) {
         e.preventDefault();
-        PUBNUB.unsubscribe({ channel : userObj.channel });
+        PUBNUB.unsubscribe({channel : userObj.channel});
         $("#chat-room-page").css({display: 'none'});
         $("#channel-box").html('');
         $("#channels-list-page").css({display: 'block'});
