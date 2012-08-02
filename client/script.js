@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	$("#user").focus();
     var channel = '5004174b41075da5710000000',
     userObj = {},
     page = 1, count = 0, per_page = 10, skip = 0,
@@ -6,7 +7,7 @@ $(document).ready(function() {
 
     $("#back-to-channels").live('click', function (e) {
         e.preventDefault();
-        PUBNUB.unsubscribe({ channel : userObj.channel });
+        PUBNUB.unsubscribe({channel : userObj.channel});
         $("#chat-room-page").css({display: 'none'});
         $("#channel-box").html('');
         $("#channels-list-page").css({display: 'block'});
@@ -127,7 +128,10 @@ $(document).ready(function() {
                 var html = '';
                 if (typeof data !== 'undefined'
                     && data.success === true
-                    && typeof data.list == 'object') {
+                    && typeof data.list === 'object') {
+					if (data.count === 0) {
+						$("#error-message").html('There are no older messages').show().fadeOut(5000);
+					}
                     for (var i in data.list) {
                         html += '<div class="message">';
                         html += data.list[i].message + '<br />';
@@ -178,7 +182,7 @@ $(document).ready(function() {
         }
     });
     $(".channels").live('click', function(e) {
-        e.preventDefault();
+        e.preventDefault(); 
         $("#overlay").show();
         userObj.channel = $(this).attr('data-channel-id');
         $("#channel-box").html('Channel: ' + $(this).html());
@@ -186,6 +190,7 @@ $(document).ready(function() {
             'pass' : userObj.pass,
             'channel' : userObj.channel
         });
+        $("#message").focus();
         subscribe();
         $("#message-box").html('<a id="load-last-messages" href="#" title="Load last 10 messages">Load last 10 messages</a>');
         $("#channels-list-page").css({display: 'none'});
