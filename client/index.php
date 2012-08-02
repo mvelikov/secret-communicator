@@ -7,7 +7,7 @@ if (substr($_SERVER['HTTP_HOST'], 0, 4) === 'www.') {
     $location = 'Location: https://' . $_SERVER['REQUEST_URI'];
 }
 if ($location != '') {
-    header('Location: https://' . substr($_SERVER['HTTP_HOST'], 4) . $_SERVER['REQUEST_URI']);
+    header($location);
     exit;
 }
 ?><!DOCTYPE html>
