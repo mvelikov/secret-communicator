@@ -7,6 +7,7 @@ if (substr($_SERVER['HTTP_HOST'], 0, 4) === 'www.') {
     $location = 'Location: https://' . $_SERVER['REQUEST_URI'];
 }
 if ($location != '') {
+    header( "HTTP/1.1 301 Moved Permanently" );
     header($location);
     exit;
 }
