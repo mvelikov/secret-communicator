@@ -15,11 +15,12 @@ class MV_Controller extends CI_Controller {
                         'user' => $this->encrypt->encode('mvelikov'),
                         'pass' => $this->encrypt->encode($this->encrypt->sha1('123456')),
                     )), '</pre>';exit();*/
-        /*if (empty($_SERVER['HTTP_X_FORWARDED_PROTO']) || $_SERVER['HTTP_X_FORWARDED_PROTO'] != 'https')
+        if (empty($_SERVER['HTTP_X_FORWARDED_PROTO']) || $_SERVER['HTTP_X_FORWARDED_PROTO'] != 'https')
         {
-            redirect($this->router->class . '/error_https');
+            $this->error_https();
+            die();
         }
-        else*/if ($pass)
+        else if ($pass)
         {
             $this->load->library('mongo_db');
             $users = $this->mongo_db
