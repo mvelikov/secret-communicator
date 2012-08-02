@@ -52,7 +52,7 @@ $(document).ready(function() {
             $("#error-message").html('Please, fill in user and password').show().fadeOut(5000);
         }
     });
-    $("body").append('<div pub-key="pub-0fe3be58-2601-4fba-b4b9-86af7844be5b" sub-key="sub-62ca94b0-b883-11e1-b535-e7b64b0eaf0b" ssl="on" origin="pubsub.pubnub.com" id="pubnub"></div><script src="http://cdn.pubnub.com/pubnub-3.1.min.js"></script>');
+    $("body").append('<div pub-key="pub-0fe3be58-2601-4fba-b4b9-86af7844be5b" sub-key="sub-62ca94b0-b883-11e1-b535-e7b64b0eaf0b" ssl="on" origin="pubsub.pubnub.com" id="pubnub"></div><script src="https://cdn.pubnub.com/pubnub-3.1.min.js"></script>');
     $("#message").live('keypress', function (e) {
         if (e.ctrlKey && e.keyCode == 10) {
             e.preventDefault();
