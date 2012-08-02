@@ -225,7 +225,15 @@ $(document).ready(function() {
     //setTimeout(subscribe, 2000);
 
     function subscribe (){
-
+        if (typeof PUBNUB === 'undefined') {
+            $("#overlay").hide();
+            $("#error-message")
+                .html('Connection error, page will reload')
+                .stop(true, true)
+                .show();
+            window.location.reload();
+            return;
+        }
         // LISTEN FOR MESSAGES
         PUBNUB.subscribe({
             channel    : userObj.channel,      // CONNECT TO THIS CHANNEL.
