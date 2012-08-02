@@ -72,7 +72,7 @@ class Message extends MV_Controller
         {
             $page = 1;
         }
-        if ( ! $skip) {
+        if ( ! $skip || $skip == 'null') {
             $skip = ((int)$page - 1) * MESSAGES_PER_PAGE;
         }
 var_dump($skip, $page, MESSAGES_PER_PAGE);
