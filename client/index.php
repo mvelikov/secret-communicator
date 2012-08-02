@@ -1,4 +1,11 @@
-<?php header("Cache-Control: no-cache"); ?><!DOCTYPE html>
+<?php
+header("Cache-Control: no-cache");
+if (substr($_SERVER['HTTP_HOST'], 0, 4) === 'www.' || (empty($_SERVER['HTTP_X_FORWARDED_PROTO']) || $_SERVER['HTTP_X_FORWARDED_PROTO'] != 'https'))
+{
+    header('Location: https://' . substr($_SERVER['HTTP_HOST'], 4) . $_SERVER['REQUEST_URI']);
+    exit;
+}
+?><!DOCTYPE html>
 <html>
     <head>
         <title></title>
@@ -15,11 +22,6 @@
         <script src="js/jquery.iframe-transport.js"></script> -->
         <script src="js/ajaxupload.js"></script>
         <script src="script.js"></script>
-        <script>
-            if (document.location.protocol != "https:") {
-                document.location.href = "https://velikov-chat.phpfogapp.com" + document.location.pathname;
-            };
-        </script>
     </head>
     <body>
         <div id="main-wrapper">
