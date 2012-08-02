@@ -25,7 +25,6 @@
                     <h2>Mihail Velikov Cloud Developer</h2>
                 </div>
             </header>
-			<!--[if !IE]> -->
             <section>
                 <div class="row">
                     <span id="user-box"></span>
@@ -97,10 +96,6 @@
                 </div>
                 <div id="overlay"><img id="loader" src="images/loading.gif" alt="Loading..." /></div>
             </section>
-			<!-- <![endif]-->
-			<!--[if IE]>
-				<a href="https://www.google.com/chrome/" target="_blank">Please use a modern browser!</a>
-			<![endif]-->
             <footer id="footer">
                 <h3>Developed by Mihail Velikov</h3>
                 <a href="http://mihailvelikov.eu" target="_blank" title="Mihail Velikov Cloud Developer">http://mihailvelikov.eu</a>
