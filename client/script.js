@@ -37,19 +37,19 @@ $(document).ready(function() {
                         loadChannelsList();
 
                     } else {
-                        $("#error-message").html(data.message).show().fadeOut(5000);
+                        $("#error-message").html(data.message).stop(true,true).show().fadeOut(5000);
                         $("#overlay").hide();
                     }
                 },
                 error : function (error, type) {
                     $("#user-box").html('').hide();
                     $("#overlay").hide();
-                    $("#error-message").html('Please use https connection').show().fadeOut(5000);
+                    $("#error-message").html('Please use https connection').stop(true,true).show().fadeOut(5000);
                     userObj = {};
                 }
             });
         } else {
-            $("#error-message").html('Please, fill in user and password').show().fadeOut(5000);
+            $("#error-message").html('Please, fill in user and password').stop(true,true).show().fadeOut(5000);
         }
     });
     $("body").append('<div pub-key="pub-0fe3be58-2601-4fba-b4b9-86af7844be5b" sub-key="sub-62ca94b0-b883-11e1-b535-e7b64b0eaf0b" ssl="on" origin="pubsub.pubnub.com" id="pubnub"></div><script src="https://cdn.pubnub.com/pubnub-3.1.min.js"></script>');
@@ -102,7 +102,7 @@ $(document).ready(function() {
                             message : text
                         });
                     } else {
-                        $("#error-message").html(data.message).show().fadeOut(5000);
+                        $("#error-message").html(data.message).stop(true,true).show().fadeOut(5000);
                     }
                 },
                 error : function () {
@@ -132,7 +132,7 @@ $(document).ready(function() {
                     && data.success === true
                     && typeof data.list === 'object') {
 					if (data.count === 0) {
-						$("#error-message").html('There are no older messages').show().fadeOut(5000);
+						$("#error-message").html('There are no older messages').stop(true,true).show().fadeOut(5000);
 					}
                     for (var i in data.list) {
                         html += '<div class="message">';
@@ -141,7 +141,7 @@ $(document).ready(function() {
                         html += '</div>';
                     }
                 } else {
-                    $("#error-message").html(data.message).show().fadeOut(5000);
+                    $("#error-message").html(data.message).stop(true,true).show().fadeOut(5000);
                 }
                 page++;
                 count = data.count || count;
@@ -172,7 +172,7 @@ $(document).ready(function() {
                         && data.failed === false) {
                         html = '<li><a href="#" class="channels" data-channel-id="' + data.$id + '" title="' + escaped_channel + '">' + escaped_channel + '</a></li>'
                     } else {
-                        $("#error-message").html(data.message).show().fadeOut(5000);
+                        $("#error-message").html(data.message).stop(true,true).show().fadeOut(5000);
                     }
                     $("#channels-list").append(html);
                 },
@@ -300,7 +300,7 @@ $(document).ready(function() {
                     message : data.message
                 });
             } else {
-                $("#error-message").html(data.message).show().fadeOut(5000);
+                $("#error-message").html(data.message).stop(true,true).show().fadeOut(5000);
             }
             $("#send").prop('disabled', false);
             this.enable();
