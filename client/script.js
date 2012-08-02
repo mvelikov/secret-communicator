@@ -42,7 +42,8 @@ $(document).ready(function() {
                     }
                 },
                 error : function (error, type) {
-                    console.log(error, type);
+                    $("#user-box").html('').hide();
+                    $("#error-message").html('Please use https connection').show().fadeOut(5000);
                     userObj = {};
                 }
             });
