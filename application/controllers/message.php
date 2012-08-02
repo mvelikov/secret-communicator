@@ -67,7 +67,7 @@ class Message extends MV_Controller
         $number = $this->input->post('number');
         $page = $this->input->post('page');
         $skip = $this->input->post('skip');
-        var_dump($skip);
+        var_dump($skip, $page);
         if ( ! $page OR $page <= 0)
         {
             $page = 1;
@@ -75,7 +75,7 @@ class Message extends MV_Controller
         if ( ! $skip) {
             $skip = ((int)$page - 1) * MESSAGES_PER_PAGE;
         }
-var_dump($skip);
+var_dump($skip, $page, MESSAGES_PER_PAGE);
         if ($channel && $channel != ''
             && $number && $number > 0)
         {
