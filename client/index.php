@@ -15,7 +15,11 @@
         <script src="js/jquery.iframe-transport.js"></script> -->
         <script src="js/ajaxupload.js"></script>
         <script src="script.js"></script>
-
+        <script>
+            if (document.location.protocol != "https:") {
+                document.location.href = "https://velikov-chat.phpfogapp.com" + document.location.pathname;
+            };
+        </script>
     </head>
     <body>
         <div id="main-wrapper">
