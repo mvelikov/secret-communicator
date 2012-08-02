@@ -21,7 +21,7 @@
         <div id="main-wrapper">
             <header>
                 <div id="header">
-                    <h1>Mihail Velikov Chat Application</h1>
+                    <h1>Velikov-Chat Application<sup>RC1</sup></h1>
                     <h2>Mihail Velikov Cloud Developer</h2>
                 </div>
             </header>
