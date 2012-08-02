@@ -196,7 +196,7 @@ $(document).ready(function() {
         $("#message-box").html('<a id="load-last-messages" href="#" title="Load last 10 messages">Load last 10 messages</a>');
         $("#channels-list-page").css({display: 'none'});
         $("#chat-room-page").css({display: 'block'});
-        skip = 0;
+        page = 1, count = 0, per_page = 10, skip = 0;
     });
     function loadChannelsList() {
         $.ajax({
