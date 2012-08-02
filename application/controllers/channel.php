@@ -70,7 +70,7 @@ class Channel extends MV_Controller
 //                $this->load->view('headers/index', array('code' => 500, 'message' => 'more than one channel with this name'));
 //                return;
 //            }
-            $this->load->view('channel/get_one', array('channel' => $channel));
+            $this->load->view('channel/get_one', array('channel' => $channel['_id']));
         }
         else
         {

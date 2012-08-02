@@ -164,7 +164,6 @@ $(document).ready(function() {
                     'channel' : escaped_channel
                 },
                 success : function (data) {
-                    console.log(data);
                     var html = '';
                     if (typeof data === 'object'
                         && data.success === true
@@ -182,7 +181,7 @@ $(document).ready(function() {
         }
     });
     $(".channels").live('click', function(e) {
-        e.preventDefault(); 
+        e.preventDefault();
         $("#overlay").show();
         userObj.channel = $(this).attr('data-channel-id');
         $("#channel-box").html('Channel: ' + $(this).html());
