@@ -48,7 +48,7 @@ class MV_Controller extends CI_Controller {
 
     public function error_https()
     {
-        HTTPStatus(501);
+        HTTPStatus(401);
         $this->load->view('headers/index', array(
             'code' => 501,
             'message' => 'Use HTTPS connection!',
