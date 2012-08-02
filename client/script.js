@@ -251,10 +251,10 @@ $(document).ready(function() {
 
             connect    : function() {        // CONNECTION ESTABLISHED.
                 $("#overlay").hide();
-            //					PUBNUB.publish({             // SEND A MESSAGE.
-            //						channel : "hello_homework",
-            //						message : "Hi Homework."
-            //					});
+            //PUBNUB.publish({             // SEND A MESSAGE.
+            //channel : "hello_homework",
+            //message : "Hi Homework."
+            //});
 
             }
         })
@@ -350,4 +350,3 @@ $(document).ready(function() {
     return false;
 });*/
 });
-//jQuery.handleError = function (a,b,c) {console.log(a,b,c); return true;}
