@@ -1,17 +1,4 @@
-<?php
-header("Cache-Control: no-cache");
-$location = '';
-if (substr($_SERVER['HTTP_HOST'], 0, 4) === 'www.') {
-    $location = 'Location: https://' . substr($_SERVER['HTTP_HOST'], 4) . $_SERVER['REQUEST_URI'];
-} elseif (empty($_SERVER['HTTP_X_FORWARDED_PROTO']) || $_SERVER['HTTP_X_FORWARDED_PROTO'] != 'https') {
-    $location = 'Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-}
-if ($location != '') {
-    header( "HTTP/1.1 301 Moved Permanently" );
-    header($location);
-    exit;
-}
-?><!DOCTYPE html>
+<?php header("Cache-Control: no-cache");?><!DOCTYPE html>
 <html>
     <head>
         <title></title>

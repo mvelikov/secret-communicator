@@ -3,7 +3,7 @@ $(document).ready(function() {
     var channel = '5004174b41075da5710000000',
     userObj = {},
     page = 1, count = 0, per_page = 10, skip = 0,
-    base_href = 'https://velikov-chat.phpfogapp.com/';
+    base_href = 'http://velikov-chat.phpfogapp.com/';
 
     $("#back-to-channels").live('click', function (e) {
         e.preventDefault();
@@ -52,7 +52,7 @@ $(document).ready(function() {
             $("#error-message").html('Please, fill in user and password').stop(true,true).show().fadeOut(5000);
         }
     });
-    $("body").append('<div pub-key="pub-0fe3be58-2601-4fba-b4b9-86af7844be5b" sub-key="sub-62ca94b0-b883-11e1-b535-e7b64b0eaf0b" ssl="on" origin="pubsub.pubnub.com" id="pubnub"></div><script src="https://cdn.pubnub.com/pubnub-3.1.min.js"></script>');
+    $("body").append('<div pub-key="pub-0fe3be58-2601-4fba-b4b9-86af7844be5b" sub-key="sub-62ca94b0-b883-11e1-b535-e7b64b0eaf0b" ssl="on" origin="pubsub.pubnub.com" id="pubnub"></div><script src="http://cdn.pubnub.com/pubnub-3.1.min.js"></script>');
     $("#message").live('keypress', function (e) {
         if (e.ctrlKey && e.keyCode == 10) {
             e.preventDefault();
