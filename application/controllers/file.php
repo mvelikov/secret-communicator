@@ -14,7 +14,7 @@ class File extends MV_Controller
 
 		$this->load->library('upload', $config);
 
-		if ($this->upload->do_upload('userfile') && $this->input->post('channel'))
+		if ($this->upload->do_upload('userfile') && $this->input->post('channel') && 0)
 		{
 			$this->load->library('s3');
 
