@@ -21,7 +21,7 @@ $config['use_ssl'] = TRUE;
 |
 */
 
-$config['access_key'] = 'AKIAJ7X5A4GWGKUBVVQQ';
+$config['access_key'] = '***';
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +32,4 @@ $config['access_key'] = 'AKIAJ7X5A4GWGKUBVVQQ';
 |
 */
 
-$config['secret_key'] = 'hnP7z+2MYc6+zZLivBgARQ1QxNFfXK5ChpupFNUW';
+$config['secret_key'] = '***';
