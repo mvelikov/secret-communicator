@@ -15,15 +15,11 @@
  * ['mongo_suppress_connect_error'] If the driver can't connect by default it will throw an error which dislays the username and password used to connect. Set to TRUE to hide these details.
  * ['mongo_host_db_flag']   If running in auth mode and the user does not have global read/write then set this to true
  */
-/** 
- * mongodb://appfog_aab02bb5ab3b:appfog_aab02bb5ab3b@ds033907.mongolab.com:33907/appfog_aab02bb5ab3b_dd5c64a01867
- * mongodb://mvelikov:Aby55sh@ds033907.mongolab.com:33907/appfog_aab02bb5ab3b_dd5c64a01867
- * mongodb://<user>:<password>@ds033907.mongolab.com:33907/appfog_aab02bb5ab3b_dd5c64a01867
- */
-$config['default']['mongo_hostbase'] = 'ds033907.mongolab.com:33907/appfog_aab02bb5ab3b_dd5c64a01867';
-$config['default']['mongo_database'] = 'appfog_aab02bb5ab3b_dd5c64a01867';
-$config['default']['mongo_username'] = 'mvelikov';
-$config['default']['mongo_password'] = 'Aby55sh';
+
+$config['default']['mongo_hostbase'] = '***';
+$config['default']['mongo_database'] = '***';
+$config['default']['mongo_username'] = '***';
+$config['default']['mongo_password'] = '***';
 $config['default']['mongo_persist']  = TRUE;
 $config['default']['mongo_persist_key']	 = 'ci_persist';
 $config['default']['mongo_replica_set']  = FALSE;

@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Load extends CI_Controller {
-
+    // inserting and testing users
     public function index()
     {
         $this->load->library('mongo_db');

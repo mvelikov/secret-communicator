@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class User extends CI_Controller {
-
+    // identifies user
     public function index()
     {
         $this->load->helper(array('mv_helper'));

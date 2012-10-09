@@ -2,6 +2,7 @@
 
 class Channel extends MV_Controller
 {
+    // returns list of all channels
     public function index()
     {
         $this->load->library('mongo_db');
@@ -20,17 +21,9 @@ class Channel extends MV_Controller
         }
         $this->load->view('channel/index', array('channels' => $channels_list));
     }
-    /*public function add()
-    {
-        $this->load->library('mongo_db');
-        $this->mongo_db->insert('channels', array($this->encrypt->encode('channel1')));
-    }
-    public function ref()
-    {
-        $this->load->library('mongo_db');
-        $channel = $this->mongo_db->get_where('channels', array('_id' => new MongoID('5004174b41075da575000000')));
-        echo '<pre>', var_dump($channel), '</pre>';
-    }*/
+
+    // creates new channel and returns its id
+    // if it name exists its Id is returned
     public function insert()
     {
         $post_channel = $this->input->post('channel');
@@ -59,17 +52,7 @@ class Channel extends MV_Controller
                             'name' => $this->encrypt->encode($post_channel)
                         ));
             }
-//
-//            elseif ($channels_count == 1)
-//            {
-//                $channel = array_pop($channels_array);
-//            }
-//            else
-//            {
-//                HTTPStatus(500);
-//                $this->load->view('headers/index', array('code' => 500, 'message' => 'more than one channel with this name'));
-//                return;
-//            }
+
             $this->load->view('channel/get_one', array('channel' => $channel->{'$id'}));
         }
         else
@@ -79,6 +62,7 @@ class Channel extends MV_Controller
         }
     }
 
+    // gets single channel by the name
     public function get_one()
     {
         if ($this->input->post('channel'))
@@ -105,18 +89,4 @@ class Channel extends MV_Controller
             $this->load->view('headers/index', array('code' => 400, 'message' => 'missing chanel name'));
         }
     }
-//    public function get_all()
-//    {
-//        $this->load->library('mongo_db');
-//        $channels_array = $this->mongo_db
-//                ->get_where(array());
-//        $channels_list = array();
-//        if (is_array($channels_array))
-//        {
-//            foreach ($channels_array as $channel)
-//            {
-//                $channels_list = $this->en
-//            }
-//        }
-//    }
 }

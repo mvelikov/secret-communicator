@@ -2,6 +2,7 @@
 
 class Message extends MV_Controller
 {
+    // inserts single message
     public function insert()
     {
         $message = $this->input->post('message');
@@ -46,6 +47,7 @@ class Message extends MV_Controller
         }
     }
 
+    // @todo remove
     public function get($page = 1, $skip = 0)
     {
         $this->load->library('mongo_db');
@@ -58,9 +60,10 @@ class Message extends MV_Controller
                 ));
 
         $count = count($messages);
-        //echo '<pre>', var_dump($messages), '</pre>';
     }
 
+    // returns number of messages from given channel
+    // paginating the result
     public function get_many()
     {
         $channel = $this->input->post('channel');
